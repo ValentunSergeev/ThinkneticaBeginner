@@ -2,7 +2,7 @@ class Train
   attr_reader :speed, :wagons, :route, :number, :type
   attr_reader :current_station
 
-  def initialize(type, number)
+  def initialize(type = 'passenger', number)
     @type = type.downcase
     @speed = 0
     @current_station = -1
@@ -140,13 +140,13 @@ class Route
     if stations.include?(station)
       puts "#{station.name.capitalize} station is already in this route."
     else
-      @stations << station
+      stations << station
       puts "#{station.name.capitalize} was added to the route."
     end
   end
 
   def delete_station(station)
-    if @stations.delete.nil?
+    if @stations.delete(station).nil?
       puts "#{station.name.capitalize} is not in this route"
     else
       puts "#{station.name.capitalize} station was delete from this route."
