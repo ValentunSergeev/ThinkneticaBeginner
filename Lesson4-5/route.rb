@@ -32,6 +32,6 @@ class Route
 
   def intermediate_stations
     puts 'Intermediate stations: '
-    stations[1, -2].each {|station| puts station.name}
+    stations[1, -2].each { |station| puts station.name }
   end
 end

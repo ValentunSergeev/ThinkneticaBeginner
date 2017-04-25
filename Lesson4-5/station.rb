@@ -3,7 +3,7 @@ class Station
 
   class << self
     def all
-      ObjectSpace.each_object(Station) {|station| puts station.name}
+      ObjectSpace.each_object(Station) { |station| puts station.name }
     end
   end
 
@@ -24,12 +24,12 @@ class Station
 
   def show_trains
     puts "Trains in #{name} station:"
-    trains.each {|e| puts "Train №#{e.number} - #{e.type}"}
+    trains.each { |e| puts "Train №#{e.number} - #{e.type}" }
   end
 
   def show_by_type(type)
     puts "#{type.capitalize} trains in #{name} station:"
-    trains.each {|e| puts "Train №#{e.number}" if e.type == type}
+    trains.each { |e| puts "Train №#{e.number}" if e.type == type }
   end
 
   def delete_train(train)

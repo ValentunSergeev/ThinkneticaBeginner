@@ -5,12 +5,15 @@ class Train
   attr_reader :speed, :wagons, :route, :number
   attr_reader :current_station
 
-  include Manufacturer, InstanceCounter
+  include Manufacturer
+  include InstanceCounter
 
   def self.find(number)
     result = nil
 
-    ObjectSpace.each_object(Train) {|train| result = train if train.number == number }
+    ObjectSpace.each_object(Train) do |train|
+      result = train if train.number == number
+    end
 
     result
   end
@@ -51,7 +54,8 @@ class Train
   def add_wagon(wagon)
     if speed.zero?
       wagons << wagon
-      puts "One wagon added to train №#{number}. It has #{wagons.length} wagons now."
+      puts "One wagon added to train №#{number}.
+      It has #{wagons.length} wagons now."
     else
       puts "Train #{number} is not staying still. Stop it first"
     end
@@ -60,12 +64,12 @@ class Train
   def delete_wagon(wagon)
     if speed.zero? && wagons.include?(wagon)
       wagons.delete(wagon)
-      puts "One wagon removed from train №#{number}. It has #{wagons.length} wagons now."
+      puts "One wagon removed from train №#{number}.
+      It has #{wagons.length} wagons now."
     else
       puts "Train №#{number} is not staying still or it has not any wagons."
     end
   end
-
 
   def route=(route)
     if route.stations.size >= 2
@@ -79,11 +83,11 @@ class Train
   end
 
   def current_station=(station)
-    if is_target?(station)
-      route.stations[current_station].delete_train(self)
-      station.add_train(self)
-      @current_station = route.stations.index(station)
-    end
+    return nil unless target?(station)
+
+    route.stations[current_station].delete_train(self)
+    station.add_train(self)
+    @current_station = route.stations.index(station)
   end
 
   def previous_station
@@ -91,7 +95,8 @@ class Train
     if current_station.zero?
       puts "Train №#{number} is at the first station now."
     else
-      puts "Train №#{number} previous station is a #{route.stations[current_station - 1]}"
+      puts "Train №#{number} previous station is a
+            #{route.stations[current_station - 1]}"
     end
   end
 
@@ -100,14 +105,15 @@ class Train
     if current_station == route.stations.size - 1
       puts "Train №#{number} is at the last station now."
     else
-      puts "Train №#{number} next station is a #{route.stations[current_station + 1].name}"
+      puts "Train №#{number} next station is a
+            #{route.stations[current_station + 1].name}"
     end
   end
 
   private
 
-  def is_target?(station)
-    return false if route.nil? or station.nil?
+  def target?(station)
+    return false if route.nil? || station.nil?
 
     unless route.stations.include?(station)
       puts "#{station.name.capitalize} is not in the train №#{number} route."
