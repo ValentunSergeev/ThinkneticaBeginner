@@ -134,8 +134,8 @@ end
 
 def all_stations
   stations = $memory[:stations]
-
   stations.each_key {|name| puts name.capitalize}
+  Station.all
 end
 
 def trains_in_station

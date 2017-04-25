@@ -1,6 +1,12 @@
 class Station
   attr_reader :name, :trains
 
+  class << self
+    def all
+      ObjectSpace.each_object(Station) {|station| puts station.name}
+    end
+  end
+
   def initialize(name)
     @name = name.downcase
     @trains = []

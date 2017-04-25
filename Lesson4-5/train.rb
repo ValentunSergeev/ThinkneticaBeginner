@@ -1,12 +1,27 @@
+require_relative('manufacturer')
+require_relative('instance_counter')
+
 class Train
   attr_reader :speed, :wagons, :route, :number
   attr_reader :current_station
+
+  include Manufacturer, InstanceCounter
+
+  def self.find(number)
+    result = nil
+
+    ObjectSpace.each_object(Train) {|train| result = train if train.number == number }
+
+    result
+  end
 
   def initialize(number)
     @speed = 0
     @current_station = 0
     @number = number
     @wagons = []
+
+    register_instance
 
     puts "Train №#{number} has been created"
   end
