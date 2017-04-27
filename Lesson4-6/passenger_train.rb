@@ -5,7 +5,7 @@ class PassengerTrain < Train
     if wagon.instance_of?(PassengerWagon)
       super
     else
-      puts "It's not a passenger wagon."
+      raise 'Invalid wagon type.'
     end
   end
 end
