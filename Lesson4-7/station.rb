@@ -14,8 +14,12 @@ class Station
     validate!
   end
 
+  def each_train
+    trains.each { |train| yield train }
+  end
+
   def add_train(train)
-    return if trains.include?(train)
+    return if train.nil? || trains.include?(train)
     @trains << train
   end
 

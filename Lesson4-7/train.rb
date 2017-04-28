@@ -37,6 +37,10 @@ class Train
     self.current_speed -= SPEED_DELTA
   end
 
+  def each_wagon
+    wagons.each { |e| yield e }
+  end
+
   def wagons_number
     wagons.length
   end
@@ -87,7 +91,7 @@ class Train
 
   attr_writer :current_speed
 
-  NUMBER_PATTERN = /[а-я1-9]{3}-?[а-я1-9]{2}/i
+  NUMBER_PATTERN = /[а-я0-9]{3}-?[а-я0-9]{2}/i
   SPEED_DELTA = 5
 
   def target?(station)
