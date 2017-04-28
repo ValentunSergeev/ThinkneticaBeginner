@@ -1,21 +1,28 @@
 module Verifiable
-  def self.included(base)
-    base.instance_eval do
-      def new(*args)
-        super
-      rescue RuntimeError => e
-        puts e.message
-      end
+  module ClassMethods
+    def new(*args)
+      super
+    rescue ValidationError => e
+      puts e
     end
   end
 
-  def valid?
-    true
+  module InstanceMethods
+    def valid?
+      true
+    end
+
+    private
+
+    def validate!
+      raise ValidationError, 'Invalid params.' unless valid?
+    end
   end
 
-  private
-
-  def validate!
-    raise 'Invalid params.' unless valid?
+  def self.included(base)
+    base.extend(ClassMethods)
+    base.send(:include, InstanceMethods)
   end
 end
+
+class ValidationError < StandardError; end
