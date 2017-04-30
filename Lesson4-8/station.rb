@@ -29,7 +29,7 @@ class Station
 
   def show_by_type(type)
     puts "#{type.capitalize} trains in #{name} station:"
-    trains.each {|e| puts "Train №#{e.number}" if e.class == type}
+    trains.each { |e| puts "Train №#{e.number}" if e.class == type }
   end
 
   def delete_train(train)

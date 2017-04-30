@@ -6,7 +6,8 @@ require_relative('station')
 require_relative('route')
 
 MEMORY_PATH = __dir__ + '/memory.txt'
-COMMANDS = %w(help new_train new_station set_route move_train add_wagon remove_wagon all_stations trains_in_station clear exit)
+COMMANDS = %w[help new_train new_station set_route move_train add_wagon
+              remove_wagon all_stations trains_in_station clear exit].freeze
 MIN_ROUTE_SIZE = 2
 
 # ---------- AUXILIARY METHODS ----------
@@ -40,7 +41,7 @@ def create_route
     case input
     when 'finish'
       stations.size >= MIN_ROUTE_SIZE ? break : puts('Too small route length.')
-    when 'cancel' then
+    when 'cancel'
       return
     else
       station = get_station(input)

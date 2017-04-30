@@ -13,6 +13,13 @@ module InstanceCounter
     def all
       instances || []
     end
+
+    def add_instance(instance)
+      cls = self
+
+      cls.instances = cls.instances.to_a << instance
+      cls.count = cls.count.to_i + 1
+    end
   end
 
   module InstanceMethods
@@ -21,15 +28,14 @@ module InstanceCounter
     def register_instance
       cls = self.class
 
-      cls.instances = (cls.instances || []) << self
-      cls.count = (cls.count || 0) + 1
+      cls.add_instance(self)
 
-      parent = cls.superclass
-      while parent.included_modules.include?(InstanceCounter)
-        parent.count = (parent.count || 0) + 1
-        parent.instances = (parent.instances || []) << self
+      loop do
+        cls = cls.superclass
 
-        parent = parent.superclass
+        break unless cls.included_modules.include?(InstanceCounter)
+
+        cls.add_instance(self)
       end
     end
   end

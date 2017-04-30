@@ -51,8 +51,8 @@ class Train
   end
 
   def delete_wagon(wagon)
-   return unless current_speed.zero?
-   wagons.delete(wagon)
+    return unless current_speed.zero?
+    wagons.delete(wagon)
   end
 
   def route=(route)
