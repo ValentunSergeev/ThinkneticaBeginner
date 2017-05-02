@@ -1,17 +1,20 @@
-require_relative('verifiable')
 require_relative('instance_counter')
+require_relative('../Lesson9/validation')
 
 class Station
   attr_reader :name, :trains
 
-  include Verifiable
+  include Validation
   include InstanceCounter
+
+  NAME_MIN_LENGTH = 5
+
+  validates :name, length: { min: 5 }
+  initial_validate
 
   def initialize(name)
     @name = name.downcase
     @trains = []
-
-    validate!
   end
 
   def each_train
@@ -35,13 +38,4 @@ class Station
   def delete_train(train)
     @trains.delete(train)
   end
-
-  def valid?
-    return false if name.length < NAME_MIN_LENGTH
-    true
-  end
-
-  private
-
-  NAME_MIN_LENGTH = 5
 end

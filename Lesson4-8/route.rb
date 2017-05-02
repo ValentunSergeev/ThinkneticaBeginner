@@ -1,15 +1,18 @@
 require_relative('station')
-require_relative('verifiable')
+require_relative('../Lesson9/validation')
 
 class Route
   attr_reader :stations
 
-  include Verifiable
+  include Validation
+
+  MIN_SIZE = 2
+
+  validates :stations, length: { min: MIN_SIZE }, type: Array
+  initial_validate
 
   def initialize(stations)
     @stations = stations
-
-    validate!
   end
 
   def add_station(station)
@@ -33,14 +36,4 @@ class Route
   def intermediate_stations
     stations[1, -2].each { |station| puts station.name }
   end
-
-  def valid?
-    stations.each { |e| return false unless e.class == Station }
-    return false if stations.size < MIN_SIZE
-    true
-  end
-
-  private
-
-  MIN_SIZE = 2
 end

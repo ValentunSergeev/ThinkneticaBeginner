@@ -1,13 +1,22 @@
 require_relative('manufacturer')
 require_relative('instance_counter')
-require_relative('verifiable')
+require_relative('../Lesson9/validation')
 
 class Train
   attr_reader :current_speed, :wagons, :route, :number, :current_station
 
+  NUMBER_PATTERN = /^[а-я0-9]{3}-?[а-я0-9]{2}$/i
+
   include Manufacturer
   include InstanceCounter
-  include Verifiable
+  include Validation
+
+  validates :current_speed, :wagons, :number, presence: true
+  validates :number, format: NUMBER_PATTERN
+  validates :current_speed, type: Fixnum
+  validates :wagons, type: Array
+
+  initial_validate
 
   def self.find(number)
     result = nil
@@ -22,8 +31,6 @@ class Train
     @current_station = 0
     @number = number
     @wagons = []
-
-    validate!
 
     register_instance
   end
@@ -79,19 +86,10 @@ class Train
     route.stations[current_station + 1].name
   end
 
-  def valid?
-    return false if @number !~ NUMBER_PATTERN
-
-    Train.all.each { |e| return false if e.number == @number }
-
-    true
-  end
-
   private
 
   attr_writer :current_speed
 
-  NUMBER_PATTERN = /[а-я0-9]{3}-?[а-я0-9]{2}/i
   SPEED_DELTA = 5
 
   def target?(station)
