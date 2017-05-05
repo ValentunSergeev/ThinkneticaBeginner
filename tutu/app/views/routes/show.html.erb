@@ -4,6 +4,14 @@
   <strong>Title:</strong>
   <%= @route.name %>
 </p>
+<p>
+  <strong>Stations: </strong>
+<ul>
+  <% @route.stations.each do |station| %>
+      <li><%= station.title %></li>
+  <% end %>
+</ul>
+</p>
 
 <%= link_to 'Edit', edit_route_path(@route) %> |
 <%= link_to 'Back', routes_path %>
