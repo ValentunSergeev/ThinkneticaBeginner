@@ -5,5 +5,15 @@
   <%= @train.number %>
 </p>
 
+<p>
+  <strong>Route:</strong>
+  <%= @train.route.name %>
+</p>
+
+<p>
+  <strong>Current Station:</strong>
+  <%= @train.current_station.title %>
+</p>
+
 <%= link_to 'Edit', edit_train_path(@train) %> |
 <%= link_to 'Back', trains_path %>

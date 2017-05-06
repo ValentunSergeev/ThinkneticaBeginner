@@ -1,17 +1,21 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @route.name %>
-</p>
-<p>
-  <strong>Stations: </strong>
+<strong>Title:</strong>
+<%= @route.name %><br><br>
+
+<strong>Stations:</strong>
 <ul>
   <% @route.stations.each do |station| %>
-      <li><%= station.title %></li>
+    <li><%= station.title %></li>
   <% end %>
 </ul>
-</p>
+
+<strong>Trains:</strong>
+<ul>
+  <% @route.trains.each do |train| %>
+    <li><%= train.number %></li>
+  <% end %>
+</ul>
 
 <%= link_to 'Edit', edit_route_path(@route) %> |
 <%= link_to 'Back', routes_path %>
