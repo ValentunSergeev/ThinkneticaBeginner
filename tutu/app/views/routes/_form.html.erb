@@ -1,25 +1,17 @@
 <%= form_for(route) do |f| %>
-    <% if route.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(route.errors.count, "error") %> prohibited this route from being saved:</h2>
+  <%= render 'common/errors', resourse: route %>
 
-          <ul>
-            <% route.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
-            <% end %>
-          </ul>
-        </div>
-    <% end %>
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
 
-    <div class="field">
-      <%= f.label :name %>
-      <%= f.text_field :name %>
+  <div class="field">
+    <%= f.label :stations, 'Select stations' %>
+    <%= f.collection_select :station_ids, RailwayStation.all, :id, :title, {}, { multiple: true } %>
+  </div>
 
-      <%= f.label :stations, 'Select stations' %>
-      <%= f.collection_select :station_ids, RailwayStation.all, :id, :title, {}, { multiple: true }  %>
-    </div>
-
-    <div class="actions">
-      <%= f.submit %>
-    </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
 <% end %>
