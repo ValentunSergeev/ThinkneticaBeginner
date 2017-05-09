@@ -1,7 +1,7 @@
 class Train < ApplicationRecord
   belongs_to :route
   belongs_to :current_station, class_name: 'RailwayStation', foreign_key: :railway_station_id
-  has_many :tickets
+  # has_many :tickets
   has_many :wagons, dependent: :destroy
 
   NUMBER_PATTERN = /\A[а-яa-z0-9]{3}-?[а-яa-z0-9]{2}\z/i
