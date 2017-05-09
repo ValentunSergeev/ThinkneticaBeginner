@@ -1,19 +1,29 @@
 <p id="notice"><%= notice %></p>
-
-<p>
+<div>
   <strong>Number:</strong>
-  <%= @train.number %>
-</p>
+  <%= @train.number %><br>
 
-<p>
+
   <strong>Route:</strong>
-  <%= @train.route.name %>
-</p>
+  <%= @train.route.name %><br>
 
-<p>
   <strong>Current Station:</strong>
-  <%= @train.current_station.title %>
-</p>
+  <%= @train.current_station.title %><br>
 
+  <strong>Wagons: </strong>
+</div>
+<ul>
+  <% Wagon.kinds.each_key do |wagon_kind| %>
+    <li>
+      <%= "#{wagon_kind} - #{@train.wagons_count(wagon_kind)} wagons:" %>
+      <ul>
+        <li>Bottom seats: <%= @train.wagon_seats(wagon_kind, :bottom) %></li>
+        <li>Top seats: <%= @train.wagon_seats(wagon_kind, :top) %></li>
+      </ul>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to 'Add wagon', new_train_wagon_path(@train) %> |
 <%= link_to 'Edit', edit_train_path(@train) %> |
 <%= link_to 'Back', trains_path %>

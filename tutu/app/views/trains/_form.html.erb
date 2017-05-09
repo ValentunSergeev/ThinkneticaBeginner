@@ -11,12 +11,11 @@
     <%= f.collection_select :route_id, Route.all, :id, :name %>
   </div>
 
-  <% unless train.new_record? %>
-    <div class="field">
-      <%= f.label :current_station, 'Select station' %>
-      <%= f.collection_select :railway_station_id, train.route.stations , :id, :title %>
-    </div>
-  <% end %>
+
+  <div class="field">
+    <%= f.label :current_station, 'Select station' %>
+    <%= f.collection_select :railway_station_id, RailwayStation.all, :id, :title %>
+  </div>
 
   <div class="actions">
     <%= f.submit %>

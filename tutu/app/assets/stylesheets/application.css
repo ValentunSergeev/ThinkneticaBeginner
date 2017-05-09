@@ -15,12 +15,10 @@
  */
 
 .footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
+    min-width: 100%;
     background-color: dimgrey;
-    vertical-align: bottom;
-    margin-left: -33px;
+    margin-top: 10px;
+    margin-left: -10px;
     padding: 10px;
     color: white;
     height: 100px;
