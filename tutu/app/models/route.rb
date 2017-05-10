@@ -1,6 +1,7 @@
 class Route < ApplicationRecord
 
-  has_and_belongs_to_many :stations, class_name: 'RailwayStation'
+  has_many :railway_stations_routes
+  has_many :stations, through: :railway_stations_routes, source: :railway_station
 
   has_many :trains
 
