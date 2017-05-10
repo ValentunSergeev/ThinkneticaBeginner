@@ -6,6 +6,8 @@ class Route < ApplicationRecord
   has_many :trains
 
   validates :name, presence: true
+  validate :stations_length
+  before_validation :set_name
 
   def first_station
     stations.first
@@ -13,5 +15,17 @@ class Route < ApplicationRecord
 
   def last_station
     stations.last
+  end
+
+  private
+
+  def stations_length
+    if stations.size < 2
+      errors.add(:base, 'Route must have at least two stations.')
+    end
+  end
+
+  def set_name
+    self.name = "#{first_station.title} - #{last_station.title}"
   end
 end

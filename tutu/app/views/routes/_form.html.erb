@@ -2,11 +2,6 @@
   <%= render 'common/errors', resourse: @route %>
 
   <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
-
-  <div class="field">
     <%= f.label :stations, 'Select stations' %>
     <%= f.collection_select :station_ids, RailwayStation.all, :id, :title, {}, { multiple: true } %>
   </div>
