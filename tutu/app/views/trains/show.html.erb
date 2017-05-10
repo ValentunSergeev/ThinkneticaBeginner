@@ -1,17 +1,14 @@
-<p id="notice"><%= notice %></p>
-<div>
-  <strong>Number:</strong>
-  <%= @train.number %><br>
+<strong>Number:</strong>
+<%= @train.number %><br>
 
 
-  <strong>Route:</strong>
-  <%= @train.route.name %><br>
+<strong>Route:</strong>
+<%= @train.route.name %><br>
 
-  <strong>Current Station:</strong>
-  <%= @train.current_station.title %><br>
+<strong>Current Station:</strong>
+<%= @train.current_station.title %><br>
 
-  <strong>Wagons: </strong>
-</div>
+<strong>Wagons: </strong>
 <ul>
   <% Wagon.kinds.each_key do |wagon_kind| %>
     <li>

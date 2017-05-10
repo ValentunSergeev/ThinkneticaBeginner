@@ -1,0 +1,18 @@
+<p><strong>Stations in route</strong></p>
+
+<table>
+  <tbody>
+  <% @route.stations.each do |station| %>
+    <tr>
+      <td><%= station.title %></td>
+      <td>
+        <%= form_tag update_position_railway_station_path(station), method: :put do %>
+          <%= hidden_field_tag :route_id, @route.id %>
+          Position: <%= number_field_tag :position, station.position_in(@route) %>
+          <%= submit_tag 'Submit' %>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

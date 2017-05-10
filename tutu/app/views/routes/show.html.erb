@@ -1,14 +1,5 @@
-<p id="notice"><%= notice %></p>
-
 <strong>Title:</strong>
 <%= @route.name %><br>
-
-<strong>Stations:</strong>
-<ul>
-  <% @route.stations.each do |station| %>
-    <li><%= station.title %></li>
-  <% end %>
-</ul>
 
 <strong>Trains:</strong>
 <ul>
@@ -16,6 +7,8 @@
     <li><%= train.number %></li>
   <% end %>
 </ul>
+
+<%= render 'route_stations' %>
 
 <%= link_to 'Edit', edit_route_path(@route) %> |
 <%= link_to 'Back', routes_path %>
