@@ -1,11 +1,13 @@
 <%= javascript_include_tag 'wagons_form' %>
 
-<%= form_for([@train, @wagon.becomes(Wagon)]) do |f| %>
+<%= form_for([@train, @wagon.generalize]) do |f| %>
   <%= render 'common/errors', resourse: @wagon %>
+
   <div class="field">
     <%= f.label :type %><br>
     <%= f.collection_select :type, Wagon::TYPES, :first, :last %>
   </div>
+
   <div class="field" , id='top_seats_field'>
     <%= f.label :top_seats %><br>
     <%= f.text_field :top_seats %>
