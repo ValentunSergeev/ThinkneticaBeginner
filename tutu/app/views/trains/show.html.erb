@@ -10,6 +10,25 @@
 
 <strong>Wagons: </strong>
 
+<table>
+  <thead>
+  <tr>
+    <th>Номер</th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @train.wagons.each do |wagon| %>
+    <tr>
+      <td><%= wagon.number %></td>
+      <td><%= link_to 'Delete', train_wagon_path(wagon), method: :delete,
+                     data: { conform: 'Are you sure?'} %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
 <%= link_to 'Add wagon', new_train_wagon_path(@train) %> |
 <%= link_to 'Edit', edit_train_path(@train) %> |
 <%= link_to 'Back', trains_path %>

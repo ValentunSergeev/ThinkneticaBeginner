@@ -1,3 +1,5 @@
+<%= javascript_include_tag 'wagons_form' %>
+
 <%= form_for([@train, @wagon.becomes(Wagon)]) do |f| %>
   <%= render 'common/errors', resourse: @wagon %>
   <div class="field">
