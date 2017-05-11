@@ -18,6 +18,11 @@ class Train < ApplicationRecord
     wagons_by_type(kind).size
   end
 
+  def wagons
+    wagons = super
+    inverse_wagons_order ? wagons.reverse : wagons
+  end
+
   private
 
   def station_in_route?

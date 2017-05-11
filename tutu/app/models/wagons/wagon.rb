@@ -34,10 +34,10 @@ class Wagon < ApplicationRecord
   end
 
   def hashify_seats
-    prefixes = [:top, :bottom, :side_bottom, :side_top, :sitting]
+    prefixes = %w(top bottom side_bottom side_top sitting)
     result   = {}
     prefixes.each do |e|
-      result[e] = send("#{e}_seats".to_sym)
+      result[e.sub('_', ' ')] = send("#{e}_seats")
     end
     result
   end

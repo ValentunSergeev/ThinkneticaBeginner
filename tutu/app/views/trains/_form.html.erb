@@ -7,6 +7,11 @@
   </div>
 
   <div class="field">
+    <%= f.label :inverse_wagons_order %>
+    <%= f.check_box :inverse_wagons_order %>
+  </div>
+
+  <div class="field">
     <%= f.label :route, 'Select route' %>
     <%= f.collection_select :route_id, Route.all, :id, :name %>
   </div>
