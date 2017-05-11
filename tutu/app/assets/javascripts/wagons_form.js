@@ -17,7 +17,7 @@ $(document).ready(function () {
             if (fields.includes(field)){
                 field.show()
             } else {
-                field.find('input').val('');
+                field.find('input').val(0);
                 field.hide();
             }
         }

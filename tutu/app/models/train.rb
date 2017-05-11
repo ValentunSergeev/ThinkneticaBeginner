@@ -1,6 +1,7 @@
 class Train < ApplicationRecord
   belongs_to :route
-  belongs_to :current_station, class_name: 'RailwayStation', foreign_key: :railway_station_id
+  belongs_to :current_station, class_name: 'RailwayStation',
+             foreign_key: :railway_station_id
   # has_many :tickets
   has_many :wagons, dependent: :destroy
 
@@ -9,27 +10,20 @@ class Train < ApplicationRecord
   validate :station_in_route?
   validates :number, format: NUMBER_PATTERN
 
-
-  def wagon_seats(kind, seats_type)
-    wagons_by_type(kind).sum("#{seats_type}_seats")
-  end
-
-  def wagons_count(kind)
-    wagons_by_type(kind).size
-  end
-
   def wagons
     wagons = super
     inverse_wagons_order ? wagons.reverse : wagons
   end
 
+  def wagon_seats(wagon_type, seats_type)
+    wagons.select(type: wagon_type).sum("#{seats_type}_seats")
+  end
+
   private
 
   def station_in_route?
-    errors.add(:current_station, 'must be in selected route') unless route.stations.include?(current_station)
-  end
-
-  def wagons_by_type(kind)
-    Wagon.where(kind: kind, train_id: self.id)
+    unless route.stations.include?(current_station)
+      errors.add(:current_station, 'must be in selected route')
+    end
   end
 end

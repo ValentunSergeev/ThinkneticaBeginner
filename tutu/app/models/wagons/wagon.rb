@@ -8,7 +8,11 @@ class Wagon < ApplicationRecord
       SittingWagon: 'sitting'
   }
 
+  SEATS_TYPES = %w(top bottom side_bottom side_top sitting)
+
   belongs_to :train
+
+  scope :typed, ->(type) { where(type: type) }
 
   validates :number, uniqueness: { scope: :train_id }
 
@@ -19,7 +23,7 @@ class Wagon < ApplicationRecord
   end
 
   def exist_seats
-    hashify_seats.delete_if { |key, value| value.nil? }
+    hashify_seats.delete_if { |key, value| value.zero? }
   end
 
   private
@@ -34,9 +38,8 @@ class Wagon < ApplicationRecord
   end
 
   def hashify_seats
-    prefixes = %w(top bottom side_bottom side_top sitting)
     result   = {}
-    prefixes.each do |e|
+    SEATS_TYPES.each do |e|
       result[e.sub('_', ' ')] = send("#{e}_seats")
     end
     result
