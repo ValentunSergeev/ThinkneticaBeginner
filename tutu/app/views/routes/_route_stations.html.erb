@@ -6,9 +6,15 @@
     <tr>
       <td><%= station.title %></td>
       <td>
-        <%= form_tag update_position_railway_station_path(station), method: :put do %>
+        <%= form_tag update_route_params_railway_station_path(station),
+                     method: :put do %>
           <%= hidden_field_tag :route_id, @route.id %>
-          Position: <%= number_field_tag :position, station.position_in(@route) %>
+          Position:
+          <%= number_field_tag :position, station.position_in(@route) %>
+          Arrival Time:
+          <%= time_field_tag :arrival_time, station.arrival_time_in(@route) %>
+          Departure Time:
+          <%= time_field_tag :departure_time, station.departure_time_in(@route) %>
           <%= submit_tag 'Submit' %>
         <% end %>
       </td>
