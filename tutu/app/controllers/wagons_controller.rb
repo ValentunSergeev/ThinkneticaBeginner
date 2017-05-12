@@ -1,6 +1,6 @@
 class WagonsController < ApplicationController
 
-  before_action :set_train
+  before_action :set_train, only: [:create, :new]
   before_action :set_wagon, only: [:show, :destroy]
 
   def show
@@ -32,7 +32,7 @@ class WagonsController < ApplicationController
   end
 
   def set_wagon
-    @wagon = @train.wagons.find(params[:id])
+    @wagon = Wagon.find(params[:id])
   end
 
   def wagon_params

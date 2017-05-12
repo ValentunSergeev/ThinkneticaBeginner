@@ -21,8 +21,8 @@
   <% @train.wagons.each do |wagon| %>
     <tr>
       <td><%= wagon.number %></td>
-      <td><%= link_to 'Show', [@train, wagon.generalize] %></td>
-      <td><%= link_to 'Delete', [@train, wagon.generalize], method: :delete,
+      <td><%= link_to 'Show', wagon.generalize %></td>
+      <td><%= link_to 'Delete', wagon.generalize, method: :delete,
                      data: { conform: 'Are you sure?'} %>
       </td>
     </tr>
