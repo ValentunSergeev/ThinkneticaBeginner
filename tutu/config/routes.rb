@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :trains do
     resources :wagons, shallow: true
     resources :tickets, shallow: true, only: [:show, :new, :destroy, :create]
@@ -9,5 +10,5 @@ Rails.application.routes.draw do
   resources :routes
   resource :search, only: [:show]
 
-  root 'railway_stations#index'
+  root 'searches#show'
 end
