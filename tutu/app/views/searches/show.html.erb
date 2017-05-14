@@ -35,4 +35,6 @@
     <% end %>
     </tbody>
   </table>
+<% elsif @trains.try(:empty?) %>
+  There are not trains suitable for request :(
 <% end %>
