@@ -1,5 +1,5 @@
 class Ticket < ApplicationRecord
-  # belongs_to :train
+  belongs_to :train
   # belongs_to :user
 
   belongs_to :start_station, class_name: 'RailwayStation'
@@ -11,6 +11,8 @@ class Ticket < ApplicationRecord
   private
 
   def validate_stations
-    errors.add(:end_station, 'must not be equal to the start station.') if start_station.id == end_station.id
+    if start_station.id == end_station.id
+      errors.add(:end_station, 'must not be equal to the start station.')
+    end
   end
 end

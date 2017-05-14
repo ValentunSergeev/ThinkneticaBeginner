@@ -21,11 +21,17 @@
     </thead>
     <tbody>
     <% @trains.each do |train| %>
-    <tr>
-      <td><%= link_to train.number, train %></td>
-      <td><%= train.time_for(params[:start_station_id])[:departure] %></td>
-      <td><%= train.time_for(params[:end_station_id])[:arrival] %></td>
-    </tr>
+      <tr>
+        <td><%= link_to train.number, train %></td>
+        <td><%= train.time_for(params[:start_station_id])[:departure] %></td>
+        <td><%= train.time_for(params[:end_station_id])[:arrival] %></td>
+        <td><%= form_tag new_train_ticket_path(train), method: :get do %>
+            <%= hidden_field_tag :start_station_id, params[:start_station_id] %>
+            <%= hidden_field_tag :end_station_id, params[:end_station_id] %>
+            <%= submit_tag 'Buy' %>
+          <% end %>
+        </td>
+      </tr>
     <% end %>
     </tbody>
   </table>
