@@ -8,7 +8,9 @@ class RailwayStation < ApplicationRecord
 
   def update_route_params(route, params={})
     route_station = route_station_for(route)
-    route_station.update(params)
+    if route_station.update(params)
+      route.save
+    end
   end
 
   def position_in(route)

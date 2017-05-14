@@ -6,7 +6,7 @@ class Route < ApplicationRecord
   has_many :trains
 
   validate :stations_length
-  before_validation :set_name, :set_positions
+  before_validation :set_name
 
   def first_station
     stations.first
@@ -28,9 +28,5 @@ class Route < ApplicationRecord
     unless stations.empty?
       self.name = "#{first_station.title} - #{last_station.title}"
     end
-  end
-
-  def set_positions
-    railway_stations_routes.each_with_index { |e, i| e.update(position: i + 1) }
   end
 end

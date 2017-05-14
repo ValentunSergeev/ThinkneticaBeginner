@@ -12,9 +12,11 @@
           Position:
           <%= number_field_tag :position, station.position_in(@route) %>
           Arrival Time:
-          <%= time_field_tag :arrival_time, station.arrival_time_in(@route) %>
+          <%= time_field_tag :arrival_time, station.arrival_time_in(@route),
+                             step: 5.minutes %>
           Departure Time:
-          <%= time_field_tag :departure_time, station.departure_time_in(@route) %>
+          <%= time_field_tag :departure_time, station.departure_time_in(@route),
+                             step: 5.minutes %>
           <%= submit_tag 'Submit' %>
         <% end %>
       </td>

@@ -3,7 +3,7 @@
 
 
 <strong>Route:</strong>
-<%= @train.route.name %><br>
+<%= link_to @train.route.name, @train.route %><br>
 
 <strong>Current Station:</strong>
 <%= @train.current_station.title %><br>

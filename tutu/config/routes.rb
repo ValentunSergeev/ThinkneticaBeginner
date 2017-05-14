@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   end
   resources :routes
   resources :tickets
+  resource :search, only: [:show]
 
   root 'railway_stations#index'
 end

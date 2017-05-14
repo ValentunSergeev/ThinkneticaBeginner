@@ -1,0 +1,32 @@
+<h1>Find tickets: </h1>
+<%= form_tag search_path, method: :get do %>
+  <%= select_tag :start_station_id,
+                 options_from_collection_for_select(@stations, :id, :title,
+                                                    params[:start_station_id]) %>
+  <%= select_tag :end_station_id,
+                 options_from_collection_for_select(@stations, :id, :title,
+                                                    params[:end_station_id]) %>
+  <%= submit_tag 'Search' %>
+<% end %>
+
+<% if @trains.present? %>
+  <table>
+    <thead>
+    <tr>
+      <th>Number</th>
+      <th>Departure Time</th>
+      <th>Arrival Time</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @trains.each do |train| %>
+    <tr>
+      <td><%= link_to train.number, train %></td>
+      <td><%= train.time_for(params[:start_station_id])[:departure] %></td>
+      <td><%= train.time_for(params[:end_station_id])[:arrival] %></td>
+    </tr>
+    <% end %>
+    </tbody>
+  </table>
+<% end %>

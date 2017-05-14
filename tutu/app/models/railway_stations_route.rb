@@ -4,8 +4,14 @@ class RailwayStationsRoute < ApplicationRecord
 
   default_scope { order(:position) }
 
-  validates :position, numericality: { greater_than: 0, only_integer: true },
-            uniqueness: { scope: :route_id }, unless: -> { new_record? }
-
   validates :railway_station_id, uniqueness: { scope: :route_id }
+  validate :arrival_departure_times
+
+  private
+
+  def arrival_departure_times
+    if arrival_time >= departure_time
+      errors.add(:arrival_time, 'Must be less them departure')
+    end
+  end
 end
