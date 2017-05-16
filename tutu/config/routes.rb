@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: {
+      sessions: 'users/sessions'
+  }
 
-  root 'searches#show'
+  root 'pages#welcome'
 
   resource :search, only: [:show]
   
@@ -12,7 +14,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    root 'railway_stations#index'
+    root 'pages#welcome'
 
     resources :wagons, only: [:index]
     resources :tickets
