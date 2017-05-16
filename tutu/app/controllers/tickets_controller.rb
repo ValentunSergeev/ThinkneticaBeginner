@@ -1,6 +1,6 @@
 class TicketsController < ApplicationController
-  before_action :set_ticket, only: [:show]
-  before_action :require_owner, only: [:show]
+  before_action :set_ticket, only: [:show, :destroy]
+  before_action :require_owner, only: [:show, :destroy]
   before_action :set_train, only: [:create, :new]
 
   def index
@@ -23,6 +23,11 @@ class TicketsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def destroy
+    @ticket.destroy
+    redirect_to tickets_path, notice: 'Ticket wa successfully deleted.'
   end
 
   private

@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   resource :search, only: [:show]
   
-  resources :tickets, only: [:index, :show]
+  resources :tickets, only: [:index, :show, :destroy]
 
   resources :trains, only: [] do
     resources :tickets, only: [:new, :create]
