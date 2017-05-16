@@ -1,6 +1,7 @@
 class TicketsController < ApplicationController
+  before_action :authenticate_user!, except: [:new]
   before_action :set_ticket, only: [:show, :destroy]
-  before_action :require_owner, only: [:show, :destroy]
+  before_action :require_owner, only: [:show, :destroy, :create]
   before_action :set_train, only: [:create, :new]
 
   def index

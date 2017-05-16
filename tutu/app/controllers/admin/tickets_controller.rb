@@ -25,7 +25,6 @@ class Admin::TicketsController < Admin::BaseController
   end
 
   def edit
-    @ticket = Ticket.new
     @stations = RailwayStation.all
   end
 
