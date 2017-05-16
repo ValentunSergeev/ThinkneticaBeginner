@@ -1,0 +1,18 @@
+<h1>Tickets</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>Train</th>
+    <th>Buyer email</th>
+    <th>Owner name</th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <%= render @tickets %>
+  </tbody>
+</table>
+
+<%= link_to 'New Ticket', new_admin_ticket_path %>

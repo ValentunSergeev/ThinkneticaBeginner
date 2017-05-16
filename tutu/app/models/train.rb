@@ -24,7 +24,7 @@ class Train < ApplicationRecord
 
   def wagons
     wagons = super
-    inverse_wagons_order ? wagons.reverse : wagons
+    inverse_wagons_order ? wagons.reverse_order : wagons
   end
 
   def wagon_seats(wagon_type, seats_type)

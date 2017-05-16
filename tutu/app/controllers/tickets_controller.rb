@@ -1,7 +1,11 @@
 class TicketsController < ApplicationController
-
+  before_action :set_ticket, only: [:show]
+  before_action :require_owner, only: [:show]
   before_action :set_train, only: [:create, :new]
-  before_action :set_ticket, only: [:show, :destroy]
+
+  def index
+    @tickets = current_user.tickets.order(:train_id)
+  end
 
   def show
   end
@@ -12,17 +16,13 @@ class TicketsController < ApplicationController
 
   def create
     @ticket = @train.tickets.build(ticket_params)
+    @ticket.user = current_user
 
     if @ticket.save
       redirect_to @ticket, notice: 'Ticket was successfully added.'
     else
       render :new
     end
-  end
-
-  def destroy
-    @ticket.destroy
-    redirect_to @train, notice: 'Train was successfully deleted.'
   end
 
   private
@@ -38,5 +38,11 @@ class TicketsController < ApplicationController
   def ticket_params
     params.require(:ticket).permit(:start_station_id, :end_station_id,
                                    :full_name)
+  end
+
+  def require_owner
+    unless @ticket.user == current_user
+      redirect_to root_path, alert: 'You have no rights to see this page.'
+    end
   end
 end

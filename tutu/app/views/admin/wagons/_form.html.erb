@@ -1,0 +1,39 @@
+<%= javascript_include_tag 'wagons_form' %>
+
+<%= form_for([:admin, @train, @wagon.generalize]) do |f| %>
+  <%= render 'common/errors', resourse: @wagon %>
+
+  <div class="field">
+    <%= f.label :type %><br>
+    <%= f.collection_select :type, Wagon::TYPES, :first, :last %>
+  </div>
+
+  <div class="field" id='top_seats_field'>
+    <%= f.label :top_seats %><br>
+    <%= f.text_field :top_seats %>
+  </div>
+
+  <div class="field" id='bottom_seats_field'>
+    <%= f.label :bottom_seats %><br>
+    <%= f.text_field :bottom_seats %>
+  </div>
+
+  <div class="field" id='side_top_seats_field'>
+    <%= f.label :side_top_seats %><br>
+    <%= f.text_field :side_top_seats %>
+  </div>
+
+  <div class="field" id='side_bottom_seats_field'>
+    <%= f.label :side_bottom_seats %><br>
+    <%= f.text_field :side_bottom_seats %>
+  </div>
+
+  <div class="field" id='sitting_seats_field'>
+    <%= f.label :sitting_seats %><br>
+    <%= f.text_field :sitting_seats %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

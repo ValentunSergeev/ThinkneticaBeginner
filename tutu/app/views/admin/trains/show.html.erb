@@ -1,0 +1,29 @@
+<strong>Number:</strong>
+<%= @train.number %><br>
+
+
+<strong>Route:</strong>
+<%= link_to @train.route.name, [:admin, @train.route] %><br>
+
+<strong>Current Station:</strong>
+<%= @train.current_station.title %><br>
+
+<strong>Wagons: </strong>
+
+<table>
+  <tbody>
+  <% @train.wagons.each do |wagon| %>
+    <tr>
+      <td><%= wagon.number %></td>
+      <td><%= link_to 'Show', [:admin, wagon.generalize] %></td>
+      <td><%= link_to 'Delete', [:admin, wagon.generalize], method: :delete,
+                     data: { conform: 'Are you sure?'} %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Add wagon', new_admin_train_wagon_path(@train) %> |
+<%= link_to 'Edit', edit_admin_train_path(@train) %> |
+<%= link_to 'Back', admin_trains_path %>

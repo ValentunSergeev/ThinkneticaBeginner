@@ -1,16 +1,17 @@
 class Wagon < ApplicationRecord
-  default_scope { order(:number) }
 
   TYPES = {
-      CoupeWagon:   'coupe',
-      EconomyWagon: 'economy',
-      PremiumWagon: 'premium',
-      SittingWagon: 'sitting'
+  CoupeWagon:   'coupe',
+  EconomyWagon: 'economy',
+  PremiumWagon: 'premium',
+  SittingWagon: 'sitting'
   }
 
   SEATS_TYPES = %w(top bottom side_bottom side_top sitting)
 
   belongs_to :train
+
+  default_scope { order(:number) }
 
   scope :typed, ->(type) { where(type: type) }
 

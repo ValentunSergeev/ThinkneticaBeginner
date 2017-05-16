@@ -1,0 +1,14 @@
+<h1>Wagons</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>Number</th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <%= render @wagons.map(&:generalize) %>
+  </tbody>
+</table>

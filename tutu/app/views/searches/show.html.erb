@@ -22,7 +22,7 @@
     <tbody>
     <% @trains.each do |train| %>
       <tr>
-        <td><%= link_to train.number, train %></td>
+        <td><%= train.number %></td>
         <td><%= train.time_for(params[:start_station_id])[:departure] %></td>
         <td><%= train.time_for(params[:end_station_id])[:arrival] %></td>
         <td><%= form_tag new_train_ticket_path(train), method: :get do %>

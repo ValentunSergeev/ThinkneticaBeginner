@@ -1,0 +1,10 @@
+<strong>Full buyer name: </strong>
+<%= @ticket.full_name %><br>
+
+<strong>Start station: </strong>
+<%= @ticket.start_station.title %><br>
+
+<strong>End station: </strong>
+<%= @ticket.end_station.title %><br>
+
+<%= link_to 'Back', admin_tickets_path %>

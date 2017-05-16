@@ -1,0 +1,14 @@
+<strong>Title:</strong>
+<%= @route.name %><br>
+
+<strong>Trains:</strong>
+<ul>
+  <% @route.trains.each do |train| %>
+    <li><%= train.number %></li>
+  <% end %>
+</ul>
+
+<%= render 'route_stations' %>
+
+<%= link_to 'Edit', edit_admin_route_path(@route) %> |
+<%= link_to 'Back', admin_routes_path %>
