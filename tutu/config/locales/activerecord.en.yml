@@ -1,0 +1,8 @@
+en:
+  activerecord:
+    models:
+      ticket: "Ticket"
+      train: "Train"
+    errors:
+      messages:
+        blank: "must not be blank"

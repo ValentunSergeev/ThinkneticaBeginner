@@ -1,7 +1,7 @@
 class TicketsController < ApplicationController
   before_action :authenticate_user!, except: [:new]
   before_action :set_ticket, only: [:show, :destroy]
-  before_action :require_owner, only: [:show, :destroy, :create]
+  before_action :require_owner, only: [:show, :destroy]
   before_action :set_train, only: [:create, :new]
 
   def index
@@ -20,15 +20,18 @@ class TicketsController < ApplicationController
     @ticket.user = current_user
 
     if @ticket.save
-      redirect_to @ticket, notice: 'Ticket was successfully added.'
+      redirect_to @ticket, notice: I18n.t('common.statuses.created',
+                                          resource: @ticket.localize)
     else
+      # FIXME render clears url params and causes crash
       render :new
     end
   end
 
   def destroy
     @ticket.destroy
-    redirect_to tickets_path, notice: 'Ticket wa successfully deleted.'
+    redirect_to tickets_path, notice: I18n.t('common.statuses.updated',
+                                             resource: @ticket.localize)
   end
 
   private
@@ -48,7 +51,7 @@ class TicketsController < ApplicationController
 
   def require_owner
     unless @ticket.user == current_user
-      redirect_to root_path, alert: 'You have no rights to see this page.'
+      redirect_to root_path, alert: t('common.statuses.forbidden')
     end
   end
 end

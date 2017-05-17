@@ -1,10 +1,10 @@
-<strong>Full buyer name: </strong>
+<strong><%= t('.buyer')%></strong>
 <%= @ticket.full_name %><br>
 
-<strong>Start station: </strong>
+<strong><%= t('.start_station')%></strong>
 <%= @ticket.start_station.title %><br>
 
-<strong>End station: </strong>
+<strong><%= t('.end_station')%></strong>
 <%= @ticket.end_station.title %><br>
 
-<%= link_to 'Back', tickets_path %>
+<%= link_to t('common.actions.back'), tickets_path %>

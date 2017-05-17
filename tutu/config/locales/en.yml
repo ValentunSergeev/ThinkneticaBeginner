@@ -1,23 +1,44 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  errors:
+    header: "The following errors occurred while saving:"
+    stations:
+      in_route: "must be in route"
+      equal: "must not be equal to the start station"
+  searches:
+    show:
+      search: "Search"
+      buy: "Buy"
+      no_results: "There are no suitable trains for request."
+      header: "Find tickets"
+      number: "Number"
+      departure_time: "Departure time"
+      arrival_time: "Arrival time"
+  common:
+    footer: "(с) 2017 Sergeev Valentun. Educational rails project."
+    accaunt: "Account"
+    statuses:
+      created: "%{resource} was successfully created."
+      updated: "%{resource} was successfully updated."
+      forbidden: "You have no rights to see this page."
+    actions:
+      back: "Back"
+      show: "Show"
+      delete: "Delete"
+      create: "Create"
+      update: "Update"
+      login: "Sign in"
+      logut: "Log out"
+      signup: "Sign up"
+  tickets:
+    form:
+      submit: "%{action} ticket"
+    index:
+      owner_name: "Owner name"
+    new:
+      buy: "Buy ticket"
+    show:
+      buyer: "Full buyer name"
+      start_station: "Start station"
+      end_station: "End station"
+    search: "Search tickets"
+    my: "My tickets"
