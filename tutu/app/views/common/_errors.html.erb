@@ -1,9 +1,10 @@
-<% if resourse.errors.any? %>
-    <div id="error_explanation">
+<% if resource.errors.any? %>
+    <div class="alert alert-danger alert-block devise-bs">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
       <h2><%= t('errors.header') %></h2>
 
       <ul>
-        <% resourse.errors.full_messages.each do |message| %>
+        <% resource.errors.full_messages.each do |message| %>
             <li><%= message %></li>
         <% end %>
       </ul>

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
       sessions: 'users/sessions'
   }
 
-  root 'pages#welcome'
+  root 'searches#show'
 
   resource :search, only: [:show]
   
