@@ -23,7 +23,7 @@ class TicketsController < ApplicationController
       redirect_to @ticket, notice: I18n.t('common.statuses.created',
                                           resource: @ticket.localize)
     else
-      # FIXME render clears url params and causes crash
+      save_stations
       render :new
     end
   end
@@ -36,6 +36,11 @@ class TicketsController < ApplicationController
 
   private
 
+  def save_stations
+    @start_station_id = @ticket.start_station_id
+    @end_station_id = @ticket.end_station_id
+  end
+
   def set_train
     @train = Train.find(params[:train_id])
   end
@@ -45,8 +50,11 @@ class TicketsController < ApplicationController
   end
 
   def ticket_params
-    params.require(:ticket).permit(:start_station_id, :end_station_id,
+    result = params.require(:ticket).permit(:start_station_id, :end_station_id,
                                    :full_name)
+    result[:start_station_id] ||= @start_station_id
+    result[:end_station_id] ||= @end_station_id
+    result
   end
 
   def require_owner
