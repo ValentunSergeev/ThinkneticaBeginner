@@ -53,6 +53,7 @@ ru:
     sessions:
       new:
         sign_in: "Войти"
+        remember_me: "Запомнить меня"
     shared:
       links:
         back: "Назад"

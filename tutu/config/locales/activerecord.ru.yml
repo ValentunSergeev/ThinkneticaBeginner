@@ -11,5 +11,17 @@ ru:
         remember_me: "Запомнить меня"
         reset_password_token: "Ссылка сброса пароля"
         unlock_token: "Токен разблокировки"
+      ticket:
+        full_name: ФИО
     models:
       user: "Пользователь"
+      ticket: "Билет"
+      train: "Поезд"
+    errors:
+      messages:
+        blank: "не может быть пустым"
+      models:
+        user:
+          attributes:
+            last_name:
+              blank: "не может быть пустой"

@@ -1,2 +1,45 @@
 ru:
-  hello: 'Привет'
+  errors:
+    header: "При сохранении возникли ошибки:"
+    stations:
+      in_route: "должна быть в маршруте"
+      equal: "не должна совпадать с конечной"
+  searches:
+    show:
+      search: "Поиск"
+      buy: "Купить"
+      no_results: "Поездов не найдено"
+      header: "Найти билет"
+      number: "Номер"
+      departure_time: "Время отбытия"
+      arrival_time: "Время прибытия"
+  common:
+    footer: "(с) 2017 Sergeev Valentun. Тренировочный проект на рельсах."
+    accaunt: "Аккаунт"
+    statuses:
+      created: "%{resource} был успешно создан."
+      updated: "%{resource} был успешно сохранён."
+      forbidden: "Недостаточно прав для просмотра этой страницы."
+    actions:
+      back: "Назад"
+      show: "Показать"
+      delete: "Удалить"
+      create: "Создать"
+      update: "Редактировать"
+      login: "Войти"
+      logut: "Выйти"
+      signup: "Регистрация"
+  tickets:
+    form:
+      submit: "%{action} билет"
+    index:
+      owner_name: "На кого оформлен"
+      header: "Мои билеты"
+    new:
+      buy: "Купить билет"
+    show:
+      buyer: "ФИО покупателя"
+      start_station: "Начальная станция"
+      end_station: "Конечная станция"
+    search: "Найти билеты"
+    my: "Мои билеты"

@@ -34,6 +34,7 @@ en:
       submit: "%{action} ticket"
     index:
       owner_name: "Owner name"
+      header: "My tickets"
     new:
       buy: "Buy ticket"
     show:
