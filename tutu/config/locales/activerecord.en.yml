@@ -4,6 +4,7 @@ en:
       ticket: Ticket
       train: Train
       user: User
+      railway_station: Station
     attributes:
       user:
         current_password: Current password
@@ -15,6 +16,9 @@ en:
         remember_me: Remember me
         reset_password_token: Reset password token
         unlock_token: Unlock token
+      railway_station:
+        position: Position
+        title: Title
       ticket:
         full_name: Full name
     errors:

@@ -15,9 +15,12 @@ en:
   common:
     footer: "(с) 2017 Sergeev Valentun. Educational rails project."
     accaunt: "Account"
+    are_you_sure: "Are you sure?"
     statuses:
       created: "%{resource} was successfully created."
       updated: "%{resource} was successfully updated."
+      rejected: "Invalid params."
+      destroyed: "%{resource} was successfully deleted."
       forbidden: "You have no rights to see this page."
     actions:
       back: "Back"
@@ -25,10 +28,12 @@ en:
       delete: "Delete"
       create: "Create"
       update: "Update"
+      edit: "Edit"
       login: "Sign in"
       logout: "Log out"
       signup: "Sign up"
       search: 'Search'
+      new: "New %{resource}"
   tickets:
     form:
       submit: "%{action} ticket"
@@ -51,6 +56,17 @@ en:
         routes: "Routes"
         tickets: "Tickets"
         wagons: "Wagons"
+    railway_stations:
+      params_upadted: "Params wa successfully updated"
+      form:
+        submit: "%{action} station"
+      edit:
+        header: "Edit railway station"
+      index:
+        header: "Railway Stations"
+        title: "Title"
+      show:
+        title: "Title:"
   layouts:
     application:
       administrate: "Administrate"

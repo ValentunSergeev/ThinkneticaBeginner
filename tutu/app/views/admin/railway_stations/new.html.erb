@@ -1,5 +1,6 @@
-<h1>New Railway Station</h1>
+<h1><%= t('common.actions.new',
+          resource: @railway_station.localize)%></h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Back', admin_railway_stations_path %>
+<%= link_to t('common.actions.back'), admin_railway_stations_path %>

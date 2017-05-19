@@ -1,8 +1,8 @@
-<h1>Editing Railway Station</h1>
+<h1><%= t('.header')%></h1>
 
 <%= render 'form' %>
 
 
 
-<%= link_to 'Show', [:admin, @railway_station] %> |
-<%= link_to 'Back', admin_railway_stations_path %>
+<%= link_to t('common.actions.show'), [:admin, @railway_station] %> |
+<%= link_to t('common.actions.back'), admin_railway_stations_path %>
