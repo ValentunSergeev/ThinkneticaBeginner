@@ -53,7 +53,10 @@
         <% if user_signed_in? %>
           <li><%= link_to t('tickets.my'), tickets_path %></li>
           <li><%= link_to t('tickets.search'), search_path %></li>
-          <li><%= link_to t('common.actions.logut'),
+          <% if current_user.admin? %>
+            <li><%= link_to t('.administrate'), admin_root_path %></li>
+          <% end %>
+          <li><%= link_to t('common.actions.logout'),
                           destroy_user_session_path, method: :delete %></li>
         <% else %>
           <li><%= link_to t('common.actions.login'), new_user_session_path %></li>

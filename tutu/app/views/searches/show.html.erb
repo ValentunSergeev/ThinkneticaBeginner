@@ -6,7 +6,7 @@
   <%= select_tag :end_station_id,
                  options_from_collection_for_select(@stations, :id, :title,
                                                     params[:end_station_id]) %>
-  <%= submit_tag t('.search') %>
+  <%= submit_tag t('common.actions.search') %>
 <% end %>
 
 <% if @trains.present? %>

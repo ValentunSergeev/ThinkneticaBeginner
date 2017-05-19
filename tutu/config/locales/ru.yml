@@ -6,7 +6,6 @@ ru:
       equal: "не должна совпадать с конечной"
   searches:
     show:
-      search: "Поиск"
       buy: "Купить"
       no_results: "Поездов не найдено"
       header: "Найти билет"
@@ -27,8 +26,9 @@ ru:
       create: "Создать"
       update: "Редактировать"
       login: "Войти"
-      logut: "Выйти"
+      logout: "Выйти"
       signup: "Регистрация"
+      search: "Поиск"
   tickets:
     form:
       submit: "%{action} билет"
