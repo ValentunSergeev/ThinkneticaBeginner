@@ -1,4 +1,4 @@
-<p><strong>Stations in route</strong></p>
+<p><strong><%= t('.header')%></strong></p>
 
 <table>
   <tbody>
@@ -9,15 +9,15 @@
         <%= form_tag update_route_params_admin_railway_station_path(station),
                      method: :put do %>
           <%= hidden_field_tag :route_id, @route.id %>
-          Position:
+          <%= t('.position')%>
           <%= number_field_tag :position, station.position_in(@route) %>
-          Arrival Time:
+          <%= t('.arrival_time')%>
           <%= time_field_tag :arrival_time, station.arrival_time_in(@route),
                              step: 5.minutes %>
-          Departure Time:
+          <%= t('.departure_time')%>
           <%= time_field_tag :departure_time, station.departure_time_in(@route),
                              step: 5.minutes %>
-          <%= submit_tag 'Submit' %>
+          <%= submit_tag t('common.actions.submit')%>
         <% end %>
       </td>
     </tr>

@@ -2,11 +2,11 @@
   <%= render 'common/errors', resource: @route %>
 
   <div class="field">
-    <%= f.label :stations, 'Select stations', class: 'control-label' %>
+    <%= f.label :stations, t('.stations'), class: 'control-label' %>
     <%= f.collection_select :station_ids, RailwayStation.all, :id, :title, {}, { multiple: true } %>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit t('.submit', action: action_for(@route)) %>
   </div>
 <% end %>

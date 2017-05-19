@@ -4,6 +4,8 @@ en:
     stations:
       in_route: "must be in route"
       equal: "must not be equal to the start station"
+    routes:
+      size: "Route must have at least two stations"
   searches:
     show:
       buy: "Buy"
@@ -23,6 +25,7 @@ en:
       destroyed: "%{resource} was successfully deleted."
       forbidden: "You have no rights to see this page."
     actions:
+      submit: "Submit"
       back: "Back"
       show: "Show"
       delete: "Delete"
@@ -67,6 +70,25 @@ en:
         title: "Title"
       show:
         title: "Title:"
+    routes:
+      form:
+        stations: "Select stations"
+        submit: "%{action} route"
+      route_stations:
+        header: "Stations in route"
+        position: "Position:"
+        arrival_time: "Arrival time:"
+        departure_time: "Departure time:"
+      edit:
+        header: "Edit route"
+      index:
+        header: "Routes"
+        title: "Title"
+      new:
+        header: "New Route"
+      show:
+        title: "Title:"
+        trains: "Trains:"
   layouts:
     application:
       administrate: "Administrate"

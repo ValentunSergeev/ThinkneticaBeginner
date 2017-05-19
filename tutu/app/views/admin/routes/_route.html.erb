@@ -1,7 +1,7 @@
 <tr>
   <td><%= route.name %></td>
-  <td><%= link_to 'Show', [:admin, route]%></td>
-  <td><%= link_to 'Edit', edit_admin_route_path(route) %></td>
-  <td><%= link_to 'Destroy', [:admin, route], method: :delete,
-                  data: { confirm: 'Are you sure?' } %></td>
+  <td><%= link_to t('common.actions.show'), [:admin, route]%></td>
+  <td><%= link_to t('common.actions.edit'), edit_admin_route_path(route) %></td>
+  <td><%= link_to t('common.actions.delete'), [:admin, route], method: :delete,
+                  data: { confirm: t('common.are_you_sure') } %></td>
 </tr>

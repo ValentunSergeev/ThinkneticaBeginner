@@ -5,6 +5,7 @@ en:
       train: Train
       user: User
       railway_station: Station
+      route: Route
     attributes:
       user:
         current_password: Current password
