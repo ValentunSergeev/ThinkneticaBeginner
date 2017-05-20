@@ -1,40 +1,65 @@
-<h1><%= t('.header') %></h1>
-<%= form_tag search_path, method: :get do %>
-  <%= select_tag :start_station_id,
-                 options_from_collection_for_select(@stations, :id, :title,
-                                                    params[:start_station_id]) %>
-  <%= select_tag :end_station_id,
-                 options_from_collection_for_select(@stations, :id, :title,
-                                                    params[:end_station_id]) %>
-  <%= submit_tag t('common.actions.search') %>
-<% end %>
+<div class="row">
+  <div class=<%= search_area_classes%>>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4><%= t('.header') %></h4>
+      </div>
+      <div class="panel-body">
+        <%= form_tag search_path, method: :get, html: { role: 'form' } do %>
+          <div class="form-group">
+            <%= label_tag :start_station_id, t('activerecord.attributes.ticket.start_station'),
+                          class: 'control-label' %>
+            <%= select_tag :start_station_id,
+                           options_from_collection_for_select(@stations, :id, :title,
+                                                              params[:start_station_id]),
+                           class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <%= label_tag :end_station_id, t('activerecord.attributes.ticket.end_station'),
+                          class: 'control-label' %>
+            <%= select_tag :end_station_id,
+                           options_from_collection_for_select(@stations, :id, :title,
+                                                              params[:end_station_id]),
+                           class: 'form-control' %>
+          </div>
+          <%= submit_tag t('common.actions.search'), class: 'btn btn-primary' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-8 col-lg-7 col-sm-12">
+    <% if @trains.present? %>
+      <% @trains.each do |train| %>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4><%= train.number %></h4>
+          </div>
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-md-4">
+                <h5><%= t('.departure_time')%></h5>
+                <%= train.time_for(params[:start_station_id])[:departure] %>
+              </div>
+              <div class="col-md-4">
+                <h5><%= t('.arrival_time')%></h5>
+                <%= train.time_for(params[:end_station_id])[:arrival] %>
+              </div>
+              <div class="col-md-4">
+                <%= form_tag new_train_ticket_path(train), method: :get do %>
+                  <%= hidden_field_tag :start_station_id, params[:start_station_id] %>
+                  <%= hidden_field_tag :end_station_id, params[:end_station_id] %>
+                  <%= submit_tag t('.buy'), class: 'btn btn-primary' %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
 
-<% if @trains.present? %>
-  <table>
-    <thead>
-    <tr>
-      <th><%= t('.number') %></th>
-      <th><%= t('.departure_time') %></th>
-      <th><%= t('.arrival_time') %></th>
-      <th></th>
-    </tr>
-    </thead>
-    <tbody>
-    <% @trains.each do |train| %>
-      <tr>
-        <td><%= train.number %></td>
-        <td><%= train.time_for(params[:start_station_id])[:departure] %></td>
-        <td><%= train.time_for(params[:end_station_id])[:arrival] %></td>
-        <td><%= form_tag new_train_ticket_path(train), method: :get do %>
-            <%= hidden_field_tag :start_station_id, params[:start_station_id] %>
-            <%= hidden_field_tag :end_station_id, params[:end_station_id] %>
-            <%= submit_tag t('.buy') %>
-          <% end %>
-        </td>
-      </tr>
+    <% elsif @trains.try(:empty?) %>
+      <div class="jumbotron">
+        <h2><%= t('.no_results') %></h2>
+      </div>
     <% end %>
-    </tbody>
-  </table>
-<% elsif @trains.try(:empty?) %>
-  <%= t('.no_results') %>
-<% end %>
+  </div>
+</div>
