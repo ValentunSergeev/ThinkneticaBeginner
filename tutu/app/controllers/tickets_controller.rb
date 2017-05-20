@@ -30,7 +30,7 @@ class TicketsController < ApplicationController
 
   def destroy
     @ticket.destroy
-    redirect_to tickets_path, notice: I18n.t('common.statuses.updated',
+    redirect_to tickets_path, notice: I18n.t('common.statuses.destroyed',
                                              resource: @ticket.localize)
   end
 

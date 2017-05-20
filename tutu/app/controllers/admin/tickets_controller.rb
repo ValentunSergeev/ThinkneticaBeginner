@@ -18,7 +18,8 @@ class Admin::TicketsController < Admin::BaseController
     @ticket = Ticket.new(ticket_params)
 
     if @ticket.save
-      redirect_to [:admin, @ticket], notice: 'Ticket was successfully added.'
+      redirect_to [:admin, @ticket], notice: I18n.t('common.statuses.created',
+                                                    resource: @ticket.localize)
     else
       render :new
     end
@@ -30,7 +31,8 @@ class Admin::TicketsController < Admin::BaseController
 
   def update
     if @ticket.update(ticket_params)
-      redirect_to [:admin, @ticket], notice: 'Ticket was successfully updated.'
+      redirect_to [:admin, @ticket], notice: I18n.t('common.statuses.updated',
+                                                    resource: @ticket.localize)
     else
       render :edit
     end
@@ -38,7 +40,8 @@ class Admin::TicketsController < Admin::BaseController
 
   def destroy
     @ticket.destroy
-    redirect_to admin_tickets_path, notice: 'Train was successfully deleted.'
+    redirect_to admin_tickets_path, notice: I18n.t('common.statuses.destroyed',
+                                                   resource: @ticket.localize)
   end
 
   private

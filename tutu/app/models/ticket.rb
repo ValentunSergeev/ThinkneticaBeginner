@@ -12,14 +12,14 @@ class Ticket < ApplicationRecord
 
   def validate_stations
     if start_station.id == end_station.id
-      errors.add(:end_station, I18n.t('custom_errors.stations.equal'))
+      errors.add(:end_station, I18n.t('errors.stations.equal'))
     end
     stations_in_route = train.route.stations
     unless stations_in_route.include?(start_station)
-      errors.add(:start_station_id, I18n.t('custom_errors.stations.in_route'))
+      errors.add(:start_station_id, I18n.t('errors.stations.in_route'))
     end
     unless stations_in_route.include?(end_station)
-      errors.add(:end_station_id, I18n.t('custom_errors.stations.in_route'))
+      errors.add(:end_station_id, I18n.t('errors.stations.in_route'))
     end
   end
 end

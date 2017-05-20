@@ -1,11 +1,11 @@
-<h1>Tickets</h1>
+<h1><%= t('.header')%></h1>
 
 <table>
   <thead>
   <tr>
-    <th>Train</th>
-    <th>Buyer email</th>
-    <th>Owner name</th>
+    <th><%= t('activerecord.models.train') %></th>
+    <th><%= t('.buyer_email')%></th>
+    <th><%= t('.owner_name')%></th>
     <th colspan="3"></th>
   </tr>
   </thead>
@@ -15,4 +15,5 @@
   </tbody>
 </table>
 
-<%= link_to 'New Ticket', new_admin_ticket_path %>
+<%= link_to t('common.actions.new', resource: t('activerecord.models.ticket')),
+            new_admin_ticket_path %>

@@ -89,6 +89,17 @@ en:
       show:
         title: "Title:"
         trains: "Trains:"
+    tickets:
+      form:
+        submit: "%{action} ticket"
+      edit:
+        header: "Edit Ticket"
+      index:
+        header: "Tickets"
+        buyer_email: "Buyer email"
+        owner_name: "Owner name"
+      new:
+        header: "New Ticket"
   layouts:
     application:
       administrate: "Administrate"

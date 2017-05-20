@@ -22,6 +22,9 @@ en:
         title: Title
       ticket:
         full_name: Full name
+        user_id: User id
+        start_station_id: Start station id
+        end_station_id: End station id
     errors:
       messages:
         blank: must not be blank
