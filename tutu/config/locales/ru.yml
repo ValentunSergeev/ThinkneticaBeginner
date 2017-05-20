@@ -3,10 +3,12 @@ ru:
     header: "При сохранении возникли ошибки:"
     stations:
       in_route: "должна быть в маршруте"
-      equal: "не должна совпадать с конечной"
+      equal: "не должна совпадать с начальной"
+    routes:
+      size: "Маршрут должен иметь минимум две станции"
   searches:
     show:
-      buy: "Купить"
+      buy: "Купить билет"
       no_results: "Поездов не найдено"
       header: "Найти билет"
       number: "Номер"
@@ -15,23 +17,29 @@ ru:
   common:
     footer: "(с) 2017 Sergeev Valentun. Тренировочный проект на рельсах."
     accaunt: "Аккаунт"
+    are_you_sure: "Вы уверены?"
     statuses:
       created: "%{resource} был успешно создан."
-      updated: "%{resource} был успешно сохранён."
+      updated: "%{resource} был успешно обновлён."
+      rejected: "Неверные параметры"
+      destroyed: "%{resource} был успешно удалён."
       forbidden: "Недостаточно прав для просмотра этой страницы."
     actions:
+      submit: "Подтвердить"
       back: "Назад"
       show: "Показать"
       delete: "Удалить"
       create: "Создать"
       update: "Редактировать"
+      edit: "Редактировать"
       login: "Войти"
       logout: "Выйти"
       signup: "Регистрация"
       search: "Поиск"
+      new: "Добавить %{resource}"
   tickets:
     form:
-      submit: "%{action} билет"
+      submit: "Купить билет"
     index:
       owner_name: "На кого оформлен"
       header: "Мои билеты"
@@ -43,3 +51,102 @@ ru:
       end_station: "Конечная станция"
     search: "Найти билеты"
     my: "Мои билеты"
+  admin:
+    pages:
+      welcome:
+        stations: "Станции"
+        trains: "Поезда"
+        routes: "Маршруты"
+        tickets: "Билеты"
+        wagons: "Вагоны"
+    railway_stations:
+      created: "Станция была успешно создана."
+      updated: "Станция была успешно обновлена."
+      destroyed: "Станция была успешно удалена."
+      params_updated: "Параметры были обновлены."
+      form:
+        submit: "%{action} станцию"
+      edit:
+        header: "Изменить станцию"
+      index:
+        header: "Станции"
+        title: "Название"
+        new: "Новая станция"
+      show:
+        title: "Название:"
+      new:
+        new: "Новая станция"
+    routes:
+      form:
+        stations: "Выберите станции"
+        submit: "%{action} маршрут"
+      route_stations:
+        header: "Станции в маршруте"
+        position: "Позиция:"
+        arrival_time: "Время прибытия:"
+        departure_time: "Время отбытия:"
+      edit:
+        header: "Редактировать маршрут"
+      index:
+        header: "Маршруты"
+        title: "Название"
+      new:
+        header: "Новый маршрут"
+      show:
+        title: "Название:"
+        trains: "Поезда:"
+    tickets:
+      form:
+        submit: "%{action} билет"
+      edit:
+        header: "Редактировать билет"
+      index:
+        header: "Билеты"
+        buyer_email: "Email пользователя"
+        owner_name: "На кого оформлен"
+      new:
+        header: "Новый билет"
+    trains:
+      form:
+        submit: "%{action} поезд"
+      edit:
+        header: "Редактировать поезд"
+      index:
+        header: "Поезда"
+      new:
+        header: "Новый поезд"
+      show:
+        number: "Номер"
+        route: "Маршрут"
+        current_station: "Текущая станция:"
+        wagons: "Вагоны"
+        add_wagon: "Добавить вагон"
+    wagons:
+      types:
+        coupe: "купе"
+        economy: "плацкарт"
+        premium: "СВ"
+        sitting: "сидячие"
+      seats_types:
+        top: "нижние"
+        bottom: "верхние"
+        side_bottom: "боковые нижние"
+        side_top: "боковые верхние"
+        sitting: "сидячие"
+      form:
+        submit: "%{action} вагон"
+      edit:
+        header: "Редактировать вагон №%{wagon} (Поезд №%{train})"
+      index:
+        header: "Вагоны"
+        number: "Номер"
+      new:
+        header: "Добавить вагон к поезду №%{number}"
+      show:
+        header: "Вагон №%{number}"
+        seats: "Места"
+        type: "Тип"
+        count: "Количество"
+  layouts:
+    application:
+      administrate: "Админка"

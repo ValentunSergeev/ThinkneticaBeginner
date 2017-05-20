@@ -13,6 +13,6 @@ module Tutu
     # -- all .rb files in that directory are automatically loaded.
 
     config.autoload_paths += Dir[Rails.root.join('app', 'models', '{*/}')]
-    config.i18n.default_locale = :en
+    config.i18n.default_locale = :ru
   end
 end

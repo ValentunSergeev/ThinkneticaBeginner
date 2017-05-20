@@ -21,8 +21,7 @@ class Admin::RailwayStationsController < Admin::BaseController
 
     if @railway_station.save
       redirect_to [:admin, @railway_station],
-                  notice: I18n.t('common.statuses.created',
-                                 resource: @railway_station.localize)
+                  notice: I18n.t('admin.railway_stations.created')
     else
       render :new
     end
@@ -31,8 +30,7 @@ class Admin::RailwayStationsController < Admin::BaseController
   def update
     if @railway_station.update(railway_station_params)
       redirect_to [:admin, @railway_station],
-                  notice: I18n.t('common.statuses.updated',
-                                 resource: @railway_station.localize)
+                  notice: I18n.t('admin.railway_stations.updated')
     else
       render :edit
     end
@@ -42,15 +40,14 @@ class Admin::RailwayStationsController < Admin::BaseController
     @railway_station.destroy
 
     redirect_to admin_railway_stations_url,
-                notice: I18n.t('common.statuses.destroyed',
-                               resource: @railway_station.localize)
+                notice: I18n.t('admin.railway_stations.destroyed')
   end
 
   def update_route_params
     @route = Route.find(params[:route_id])
     if @railway_station.update_route_params(@route, station_route_params)
       redirect_to [:admin, @route],
-                  notice: I18n.t('admin.railway_stations.params_upadted')
+                  notice: I18n.t('admin.railway_stations.params_updated')
     else
       redirect_to [:admin, @route], alert: I18n.t('common.statuses.rejected')
     end

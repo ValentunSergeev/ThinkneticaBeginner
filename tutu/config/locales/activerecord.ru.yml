@@ -1,27 +1,51 @@
 ru:
   activerecord:
+    models:
+      ticket: Билет
+      train: Поезд
+      user: Пользователь
+      railway_station: Станция
+      route: Маршрут
+      wagon: Вагон
     attributes:
       user:
-        current_password: "Текущий пароль"
-        email: 'Email'
-        first_name: "Имя"
-        last_name: "Фамилия"
-        password: "Пароль"
-        password_confirmation: "Подтверждение пароля"
-        remember_me: "Запомнить меня"
-        reset_password_token: "Ссылка сброса пароля"
-        unlock_token: "Токен разблокировки"
+        current_password: Текущий пароль
+        email: Email
+        first_name: Имя
+        last_name: Фамилия
+        password: Пароль
+        password_confirmation: Подтверждение пароля
+        remember_me: Запомнить меня
+        reset_password_token: Ссылка сброса пароля
+        unlock_token: Токен разблокировки
+      railway_station:
+        position: Позиция
+        title: Название
       ticket:
         full_name: ФИО
-    models:
-      user: "Пользователь"
-      ticket: "Билет"
-      train: "Поезд"
+        user_id: Id позльвотеля
+        start_station_id: Id начальной станции
+        end_station_id: Id конечной станции
+        start_station: Начальная станция
+        end_station: Конечная станция
+      train:
+        number: Номер
+        inverse_wagons_order: Обратный порядок вагонов
+        route: Маршрут
+        current_station: Текущая станция
+      wagon:
+        type: Тип
+        top_seats: верхние места
+        bottom_seats: Нижние места
+        side_top_seats: Боковые верхние места
+        side_bottom_seats: Боковые нижние места
+        sitting_seats: сидячие места
     errors:
       messages:
-        blank: "не может быть пустым"
+        blank: не может быть пустым
+        invalid: не соотвествует правилам
       models:
         user:
           attributes:
             last_name:
-              blank: "не может быть пустой"
+              blank: не может быть пустой

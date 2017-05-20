@@ -26,6 +26,8 @@ en:
         user_id: User id
         start_station_id: Start station id
         end_station_id: End station id
+        start_station: Start station
+        end_satation: End station
       train:
         number: Number
         inverse_wagons_order: Inverse wagons order
@@ -40,5 +42,5 @@ en:
         sitting_seats: sittig seats
     errors:
       messages:
-        blank: must not be blan
+        blank: must not be blank
         invalid: is invalid

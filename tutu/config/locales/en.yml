@@ -8,7 +8,7 @@ en:
       size: "Route must have at least two stations"
   searches:
     show:
-      buy: "Buy"
+      buy: "Buy ticket"
       no_results: "There are no suitable trains for request."
       header: "Find tickets"
       number: "Number"
@@ -21,8 +21,8 @@ en:
     statuses:
       created: "%{resource} was successfully created."
       updated: "%{resource} was successfully updated."
-      rejected: "Invalid params."
       destroyed: "%{resource} was successfully deleted."
+      rejected: "Invalid params."
       forbidden: "You have no rights to see this page."
     actions:
       submit: "Submit"
@@ -39,7 +39,7 @@ en:
       new: "New %{resource}"
   tickets:
     form:
-      submit: "%{action} ticket"
+      submit: "Оформить ticket"
     index:
       owner_name: "Owner name"
       header: "My tickets"
@@ -60,7 +60,10 @@ en:
         tickets: "Tickets"
         wagons: "Wagons"
     railway_stations:
-      params_upadted: "Params wa successfully updated"
+      created: "Station was successfully created."
+      updated: "Station was successfully updated."
+      destroyed: "Station was successfully deleted."
+      params_updated: "Params was successfully updated"
       form:
         submit: "%{action} station"
       edit:
@@ -68,8 +71,11 @@ en:
       index:
         header: "Railway Stations"
         title: "Title"
+        new: "New station"
       show:
         title: "Title:"
+      new:
+        new: "New station"
     routes:
       form:
         stations: "Select stations"
