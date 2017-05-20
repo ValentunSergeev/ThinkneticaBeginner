@@ -1,29 +1,29 @@
-<strong>Number:</strong>
+<strong><%= t('.number')%></strong>
 <%= @train.number %><br>
 
 
-<strong>Route:</strong>
+<strong><%= t('.route')%></strong>
 <%= link_to @train.route.name, [:admin, @train.route] %><br>
 
-<strong>Current Station:</strong>
+<strong><%= t('.current_station')%></strong>
 <%= @train.current_station.title %><br>
 
-<strong>Wagons: </strong>
+<strong><%= t('.wagons')%></strong>
 
 <table>
   <tbody>
   <% @train.wagons.each do |wagon| %>
     <tr>
       <td><%= wagon.number %></td>
-      <td><%= link_to 'Show', [:admin, wagon.generalize] %></td>
-      <td><%= link_to 'Delete', [:admin, wagon.generalize], method: :delete,
-                     data: { conform: 'Are you sure?'} %>
+      <td><%= link_to t('common.actions.show'), [:admin, wagon.generalize] %></td>
+      <td><%= link_to t('common.actions.delete'), [:admin, wagon.generalize],
+                      method: :delete, data: { conform: t('common.are_you_sure') } %>
       </td>
     </tr>
   <% end %>
   </tbody>
 </table>
 
-<%= link_to 'Add wagon', new_admin_train_wagon_path(@train) %> |
-<%= link_to 'Edit', edit_admin_train_path(@train) %> |
-<%= link_to 'Back', admin_trains_path %>
+<%= link_to t('.add_wagon'), new_admin_train_wagon_path(@train) %> |
+<%= link_to t('common.actions.edit'), edit_admin_train_path(@train) %> |
+<%= link_to t('common.actions.back'), admin_trains_path %>

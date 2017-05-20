@@ -19,7 +19,8 @@ class Admin::TrainsController < Admin::BaseController
     @train = Train.new(train_params)
 
     if @train.save
-      redirect_to [:admin, @train], notice: 'Train was successfully created.'
+      redirect_to [:admin, @train], notice: I18n.t('common.statuses.created',
+                                                   resource: @train.localize)
     else
       render :new
     end
@@ -27,7 +28,8 @@ class Admin::TrainsController < Admin::BaseController
 
   def update
     if @train.update(train_params)
-      redirect_to [:admin, @train], notice: 'Train was successfully updated.'
+      redirect_to [:admin, @train], notice: I18n.t('common.statuses.updated',
+                                                   resource: @train.localize)
     else
       render :edit
     end
@@ -36,7 +38,8 @@ class Admin::TrainsController < Admin::BaseController
   def destroy
     @train.destroy
 
-    redirect_to admin_trains_url, notice: 'Train was successfully destroyed.'
+    redirect_to admin_trains_url, notice: I18n.t('common.statuses.destroyed',
+                                                 resource: @train.localize)
   end
 
   private

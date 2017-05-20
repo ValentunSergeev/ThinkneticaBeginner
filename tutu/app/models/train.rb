@@ -42,7 +42,7 @@ class Train < ApplicationRecord
 
   def station_in_route?
     unless route.stations.include?(current_station)
-      errors.add(:current_station, 'must be in selected route')
+      errors.add(:current_station, I18n.t('errors.stations.in_route'))
     end
   end
 end

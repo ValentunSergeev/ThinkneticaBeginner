@@ -25,6 +25,12 @@ en:
         user_id: User id
         start_station_id: Start station id
         end_station_id: End station id
+      train:
+        number: Number
+        inverse_wagons_order: Inverse wagons order
+        route: Route
+        current_station: Current station
     errors:
       messages:
-        blank: must not be blank
+        blank: must not be blan
+        invalid: is invalid

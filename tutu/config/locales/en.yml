@@ -2,7 +2,7 @@ en:
   errors:
     header: "The following errors occurred while saving:"
     stations:
-      in_route: "must be in route"
+      in_route: "must be in selected route"
       equal: "must not be equal to the start station"
     routes:
       size: "Route must have at least two stations"
@@ -100,6 +100,21 @@ en:
         owner_name: "Owner name"
       new:
         header: "New Ticket"
+    trains:
+      form:
+        submit: "%{action} ticket"
+      edit:
+        header: "Edit Train"
+      index:
+        header: "Trains"
+      new:
+        header: "New train"
+      show:
+        number: "Number:"
+        route: "Route:"
+        current_station: "Current station:"
+        wagons: "Wagons"
+        add_wagon: "Add wagon"
   layouts:
     application:
       administrate: "Administrate"
