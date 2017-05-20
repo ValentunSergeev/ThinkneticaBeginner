@@ -6,6 +6,7 @@ en:
       user: User
       railway_station: Station
       route: Route
+      wagon: Wagon
     attributes:
       user:
         current_password: Current password
@@ -30,6 +31,13 @@ en:
         inverse_wagons_order: Inverse wagons order
         route: Route
         current_station: Current station
+      wagon:
+        type: Type
+        top_seats: Top seats
+        bottom_seats: Nottom seats
+        side_top_seats: Side top seats
+        side_bottom_seats: Side bottom seats
+        sitting_seats: sittig seats
     errors:
       messages:
         blank: must not be blan

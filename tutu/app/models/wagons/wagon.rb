@@ -1,10 +1,10 @@
 class Wagon < ApplicationRecord
 
   TYPES = {
-  CoupeWagon:   'coupe',
-  EconomyWagon: 'economy',
-  PremiumWagon: 'premium',
-  SittingWagon: 'sitting'
+  CoupeWagon: I18n.t('admin.wagons.types.coupe'),
+  EconomyWagon: I18n.t('admin.wagons.types.economy'),
+  PremiumWagon: I18n.t('admin.wagons.types.premium'),
+  SittingWagon: I18n.t('admin.wagons.types.sitting')
   }
 
   SEATS_TYPES = %w(top bottom side_bottom side_top sitting)
@@ -39,9 +39,9 @@ class Wagon < ApplicationRecord
   end
 
   def hashify_seats
-    result   = {}
+    result = {}
     SEATS_TYPES.each do |e|
-      result[e.sub('_', ' ')] = send("#{e}_seats")
+      result[I18n.t("admin.wagons.seats_types.#{e}")] = send("#{e}_seats")
     end
     result
   end

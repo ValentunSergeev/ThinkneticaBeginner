@@ -102,7 +102,7 @@ en:
         header: "New Ticket"
     trains:
       form:
-        submit: "%{action} ticket"
+        submit: "%{action} train"
       edit:
         header: "Edit Train"
       index:
@@ -115,6 +115,32 @@ en:
         current_station: "Current station:"
         wagons: "Wagons"
         add_wagon: "Add wagon"
+    wagons:
+      types:
+        coupe: "coupe"
+        economy: "economy"
+        premium: "premium"
+        sitting: "sitting"
+      seats_types:
+        top: "bottom"
+        bottom: "top"
+        side_bottom: "side bottom"
+        side_top: "side top"
+        sitting: "sitting"
+      form:
+        submit: "%{action} wagon"
+      edit:
+        header: "Edit wagon №%{wagon} (Train №%{train})"
+      index:
+        header: "Wagons"
+        number: "Number"
+      new:
+        header: "Add wagon to train №%{number}"
+      show:
+        header: "Wagon №%{number}"
+        seats: "Seats"
+        type: "Type"
+        count: "Count"
   layouts:
     application:
       administrate: "Administrate"

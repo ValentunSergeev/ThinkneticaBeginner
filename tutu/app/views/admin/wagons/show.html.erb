@@ -1,10 +1,10 @@
-<h1>Wagon №<%= @wagon.number %></h1>
-<h2>Seats:</h2>
+<h1><%= t('.header', number: @wagon.number)%></h1>
+<h2><%= t('.seats')%></h2>
 <table>
   <thead>
   <tr>
-    <td>Type</td>
-    <td>Count</td>
+    <td><%= t('.type')%></td>
+    <td><%= t('.count')%></td>
   </tr>
   </thead>
   <tbody>
@@ -17,4 +17,4 @@
   </tbody>
 </table>
 
-<%= link_to 'Back', [:admin, @wagon.train] %>
+<%= link_to t('common.actions.back'), [:admin, @wagon.train] %>

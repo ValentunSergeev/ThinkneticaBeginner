@@ -1,7 +1,7 @@
 class Admin::WagonsController < Admin::BaseController
 
   before_action :set_train, only: [:create, :new]
-  before_action :set_wagon, only: [:show, :destroy, :edit]
+  before_action :set_wagon, only: [:show, :destroy, :edit, :update]
 
   def index
     @wagons = Wagon.order(:train_id, :number)
@@ -19,7 +19,8 @@ class Admin::WagonsController < Admin::BaseController
 
     if @wagon.save
       redirect_to admin_train_path(@train),
-                  notice: 'Wagon was successfully added.'
+                  notice: I18n.t('common.statuses.created',
+                                 resource: @wagon.generalize.localize)
     else
       render :new
     end
@@ -28,10 +29,22 @@ class Admin::WagonsController < Admin::BaseController
   def edit
   end
 
+  def update
+    if @wagon.update(wagon_params)
+      redirect_to admin_wagons_path,
+                  notice: I18n.t('common.statuses.updated',
+                                 resource: @wagon.generalize.localize)
+    else
+      render :edit
+    end
+  end
+
   def destroy
     train = @wagon.train
     @wagon.destroy
-    redirect_to [:admin, train], notice: 'Train was successfully deleted.'
+    redirect_to [:admin, train],
+                notice: I18n.t('common.statuses.destroyed',
+                               resource: @wagon.generalize.localize)
   end
 
   private
