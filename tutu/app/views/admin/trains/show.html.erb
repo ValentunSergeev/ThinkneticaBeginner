@@ -1,29 +1,56 @@
-<strong><%= t('.number')%></strong>
-<%= @train.number %><br>
+<%= render 'common/back', path: admin_trains_path %>
 
+<div class="row">
+  <div class="col-lg-6 col-md-8 col-sm-10">
+    <div class="panel panel-default">
 
-<strong><%= t('.route')%></strong>
-<%= link_to @train.route.name, [:admin, @train.route] %><br>
+      <div class="panel-heading">
+        <h4><%= @train.number %></h4>
+      </div>
 
-<strong><%= t('.current_station')%></strong>
-<%= @train.current_station.title %><br>
+      <div class="panel-body">
+        <strong><%= t('.route') %></strong>
+        <%= link_to @train.route.name, [:admin, @train.route] %><br>
 
-<strong><%= t('.wagons')%></strong>
+        <strong><%= t('.current_station') %></strong>
+        <%= @train.current_station.title %><br>
+      </div>
 
-<table>
-  <tbody>
-  <% @train.wagons.each do |wagon| %>
-    <tr>
-      <td><%= wagon.number %></td>
-      <td><%= link_to t('common.actions.show'), [:admin, wagon.generalize] %></td>
-      <td><%= link_to t('common.actions.delete'), [:admin, wagon.generalize],
-                      method: :delete, data: { confirm: t('common.are_you_sure') } %>
-      </td>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
+      <table class="table table-striped table-bordered">
+        <thead>
+        <tr>
+          <th><%= t('.wagons') %></th>
+          <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @train.wagons.each do |wagon| %>
+          <tr>
+            <td><%= wagon.number %></td>
+            <td class="btn-group btn-group-justified">
+              <%= link_to t('common.actions.show'), [:admin, wagon.generalize],
+                          class: 'btn btn-default' %>
+              <%= link_to t('common.actions.delete'), [:admin, wagon.generalize],
+                          class: 'btn btn-default', method: :delete,
+                          data: { confirm: t('common.are_you_sure') } %>
+            </td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
 
-<%= link_to t('.add_wagon'), new_admin_train_wagon_path(@train) %> |
-<%= link_to t('common.actions.edit'), edit_admin_train_path(@train) %> |
-<%= link_to t('common.actions.back'), admin_trains_path %>
+      <div class="panel-footer">
+        <div class="btn-group" role="group" aria-label="...">
+          <%= link_to t('.add_wagon'), new_admin_train_wagon_path(@train),
+                      class: 'btn btn-default' %>
+          <%= link_to t('common.actions.edit'), edit_admin_train_path(@train),
+                      class: 'btn btn-default' %>
+          <%= link_to t('common.actions.delete'), [:admin, @train],
+                      class: 'btn btn-default', method: :delete,
+                      data:  { confirm: t('common.are_you_sure') } %>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

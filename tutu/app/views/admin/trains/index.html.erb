@@ -1,19 +1,19 @@
-<h1><%= t('.header')%></h1>
-
-<table>
-  <thead>
+<h1><%= t('.header') %></h1>
+<div class="wrap-content">
+  <table class="table table-bordered table-striped">
+    <thead>
     <tr>
-      <th><%= t('activerecord.attributes.train.number')%></th>
-      <th colspan="3"></th>
+      <th><%= t('activerecord.attributes.train.number') %></th>
+      <th></th>
     </tr>
-  </thead>
+    </thead>
 
-  <tbody>
+    <tbody>
     <%= render @trains %>
-  </tbody>
-</table>
-
+    </tbody>
+  </table>
+</div>
 <br>
 
 <%= link_to t('common.actions.new', resource: t('activerecord.models.train')),
-            new_admin_train_path %>
+            new_admin_train_path, class: 'btn btn-primary' %>

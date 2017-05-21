@@ -44,6 +44,7 @@ ru:
       messages:
         blank: не может быть пустым
         invalid: не соотвествует правилам
+        greater_than: должны быть больше %{count}
       models:
         user:
           attributes:

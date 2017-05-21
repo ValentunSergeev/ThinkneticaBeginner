@@ -44,3 +44,4 @@ en:
       messages:
         blank: must not be blank
         invalid: is invalid
+        greater_than: must be more than %{count}
