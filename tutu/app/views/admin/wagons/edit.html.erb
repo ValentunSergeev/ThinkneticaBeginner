@@ -1,4 +1,3 @@
-<h1><%= t('.header', wagon: @wagon.number, train: @wagon.train.number)%></h1>
-<%= render 'form' %>
+<%= render 'common/back', path: admin_wagons_path %>
 
-<%= link_to t('common.actions.back'), admin_wagons_path %>
+<%= render 'form', header: t('.header', wagon: @wagon.number, train: @wagon.train.number) %>

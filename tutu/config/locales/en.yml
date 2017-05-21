@@ -141,6 +141,7 @@ en:
       index:
         header: "Wagons"
         number: "Number"
+        train_number: "Train number"
       new:
         header: "Add wagon to train №%{number}"
       show:

@@ -35,11 +35,11 @@ ru:
         current_station: Текущая станция
       wagon:
         type: Тип
-        top_seats: верхние места
+        top_seats: Верхние места
         bottom_seats: Нижние места
         side_top_seats: Боковые верхние места
         side_bottom_seats: Боковые нижние места
-        sitting_seats: сидячие места
+        sitting_seats: Сидячие места
     errors:
       messages:
         blank: не может быть пустым

@@ -141,6 +141,7 @@ ru:
       index:
         header: "Вагоны"
         number: "Номер"
+        train_number: "Номер поезда"
       new:
         header: "Добавить вагон к поезду №%{number}"
       show:

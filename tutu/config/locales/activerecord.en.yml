@@ -39,7 +39,7 @@ en:
         bottom_seats: Nottom seats
         side_top_seats: Side top seats
         side_bottom_seats: Side bottom seats
-        sitting_seats: sittig seats
+        sitting_seats: Sittig seats
     errors:
       messages:
         blank: must not be blank
