@@ -1,12 +1,13 @@
 <%= form_for([:admin, @railway_station]) do |f| %>
   <%= render 'common/errors', resource: @railway_station %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :title, class: 'control-label' %>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, class: 'form-control' %>
   </div>
 
-  <div class="actions">
-    <%= f.submit t('.submit', action: action_for(@railway_station)) %>
+  <div class="form-group">
+    <%= f.submit t('.submit', action: action_for(@railway_station)),
+                 class: 'btn btn-primary' %>
   </div>
 <% end %>

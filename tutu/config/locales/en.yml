@@ -72,6 +72,7 @@ en:
         header: "Railway Stations"
         title: "Title"
         new: "New station"
+        actions: "Actions"
       show:
         title: "Title:"
       new:

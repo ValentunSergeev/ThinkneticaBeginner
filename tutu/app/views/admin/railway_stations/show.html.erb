@@ -1,7 +1,20 @@
-<p>
-  <strong><%= t('.title')%></strong>
-  <%= @railway_station.title %>
-</p>
+<%= render 'common/back', path: admin_railway_stations_path %>
 
-<%= link_to t('common.actions.edit'), edit_admin_railway_station_path(@railway_station) %> |
-<%= link_to t('common.actions.back'), admin_railway_stations_path %>
+<div class="row">
+  <div class="col-lg-6 col-md-8 col-sm-10">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4><%= @railway_station.title %></h4>
+      </div>
+      <div class="panel-body">
+        <div class="btn-group" role="group" aria-label="...">
+          <%= link_to t('common.actions.edit'), edit_admin_railway_station_path(@railway_station),
+                      class: 'btn btn-default' %>
+          <%= link_to t('common.actions.delete'), [:admin, @railway_station],
+                      class: 'btn btn-default', method: :delete,
+                      data: { confirm: t('common.are_you_sure') } %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

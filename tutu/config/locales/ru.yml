@@ -72,6 +72,7 @@ ru:
         header: "Станции"
         title: "Название"
         new: "Новая станция"
+        actions: "Действия"
       show:
         title: "Название:"
       new:
