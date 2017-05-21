@@ -1,19 +1,19 @@
-<h1><%= t('.header')%></h1>
+<h1><%= t('.header') %></h1>
+<div class="wrap-content">
+  <table class="table table-striped table-bordered">
+    <thead>
+    <tr>
+      <th><%= t('activerecord.models.train') %></th>
+      <th><%= t('.buyer_email') %></th>
+      <th><%= t('.owner_name') %></th>
+      <th></th>
+    </tr>
+    </thead>
 
-<table>
-  <thead>
-  <tr>
-    <th><%= t('activerecord.models.train') %></th>
-    <th><%= t('.buyer_email')%></th>
-    <th><%= t('.owner_name')%></th>
-    <th colspan="3"></th>
-  </tr>
-  </thead>
-
-  <tbody>
-  <%= render @tickets %>
-  </tbody>
-</table>
-
+    <tbody>
+    <%= render @tickets %>
+    </tbody>
+  </table>
+</div><br>
 <%= link_to t('common.actions.new', resource: t('activerecord.models.ticket')),
-            new_admin_ticket_path %>
+            new_admin_ticket_path, class: 'btn btn-primary' %>

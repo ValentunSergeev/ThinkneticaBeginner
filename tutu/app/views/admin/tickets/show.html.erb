@@ -1,10 +1,30 @@
-<strong><%= t('tickets.show.buyer')%></strong>
-<%= @ticket.full_name %><br>
+<%= render 'common/back', path: admin_tickets_path %>
 
-<strong><%= t('tickets.show.start_station')%></strong>
-<%= @ticket.start_station.title %><br>
+<div class="row">
+  <div class="col-lg-6 col-md-8 col-sm-10">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4><%= @ticket.train.number %></h4>
+      </div>
+      <div class="panel-body">
+        <strong><%= t('tickets.show.buyer') %>:</strong>
+        <%= @ticket.full_name %><br>
 
-<strong><%= t('tickets.show.end_station')%></strong>
-<%= @ticket.end_station.title %><br>
+        <strong><%= t('tickets.show.start_station') %>:</strong>
+        <%= @ticket.start_station.title %><br>
 
-<%= link_to t('common.actions.back'), admin_tickets_path %>
+        <strong><%= t('tickets.show.end_station') %>:</strong>
+        <%= @ticket.end_station.title %><br>
+      </div>
+      <div class="panel-footer">
+        <div class="btn-group" role="group" aria-label="...">
+          <%= link_to t('common.actions.edit'), edit_admin_ticket_path(@ticket),
+                      class: 'btn btn-default' %>
+          <%= link_to t('common.actions.delete'), [:admin, @ticket],
+                      class: 'btn btn-default', method: :delete,
+                      data:  { confirm: t('common.are_you_sure') } %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

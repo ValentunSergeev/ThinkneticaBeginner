@@ -2,8 +2,15 @@
   <td><%= ticket.train.number %></td>
   <td><%= ticket.user.email %></td>
   <td><%= ticket.full_name %></td>
-  <td><%= link_to t('common.actions.show'), [:admin, ticket] %></td>
-  <td><%= link_to t('common.actions.edit'), edit_admin_ticket_path(ticket) %></td>
-  <td><%= link_to t('common.actions.delete'), [:admin, ticket], method: :delete,
-                  data: { confirm: t('common.are_you_sure') } %></td>
+  <td>
+    <div class="btn-group" role="group" aria-label="...">
+      <%= link_to t('common.actions.show'), [:admin, ticket],
+                  class: 'btn btn-default' %>
+      <%= link_to t('common.actions.edit'), edit_admin_ticket_path(ticket),
+                  class: 'btn btn-default' %>
+      <%= link_to t('common.actions.delete'), [:admin, ticket],
+                  class: 'btn btn-default', method: :delete,
+                  data: { confirm: t('common.are_you_sure') } %>
+    </div>
+  </td>
 </tr>

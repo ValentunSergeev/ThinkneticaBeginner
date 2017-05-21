@@ -1,32 +1,48 @@
-<%= form_for([:admin, @ticket]) do |f| %>
-  <%= render 'common/errors', resource: @ticket %>
+<div class="row">
+  <div class="col-lg-6 col-md-8 col-sm-10">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4><%= header %></h4>
+      </div>
+      <div class="panel-body">
+        <%= form_for([:admin, @ticket]) do |f| %>
+          <%= render 'common/errors', resource: @ticket %>
 
-  <div class="field">
-    <%= f.label :user_id, class: 'control-label' %>
-    <%= f.collection_select :user_id, User.all, :id, :email %>
-  </div>
+          <div class="form-group">
+            <%= f.label :user_id, class: 'control-label' %>
+            <%= f.collection_select :user_id, User.all, :id, :email, {},
+                                    class: 'form-control' %>
+          </div>
 
-  <div class="field">
-    <%= f.label :train_id, class: 'control-label' %>
-    <%= f.collection_select :train_id, Train.all, :id, :number %>
-  </div>
+          <div class="form-group">
+            <%= f.label :train_id, class: 'control-label' %>
+            <%= f.collection_select :train_id, Train.all, :id, :number, {},
+                                    class: 'form-control' %>
+          </div>
 
-  <div class="field">
-    <%= f.label :start_station_id, class: 'control-label' %>
-    <%= f.collection_select :start_station_id, RailwayStation.all, :id, :title %>
-  </div>
+          <div class="form-group">
+            <%= f.label :start_station_id, class: 'control-label' %>
+            <%= f.collection_select :start_station_id, RailwayStation.all, :id, :title,
+                                    {}, class: 'form-control' %>
+          </div>
 
-  <div class="field">
-    <%= f.label :end_station_id, class: 'control-label' %>
-    <%= f.collection_select :end_station_id, RailwayStation.all, :id, :title %>
-  </div>
+          <div class="form-group">
+            <%= f.label :end_station_id, class: 'control-label' %>
+            <%= f.collection_select :end_station_id, RailwayStation.all, :id, :title,
+                                    {}, class: 'form-control' %>
+          </div>
 
-  <div class="field">
-    <%= f.label :full_name, class: 'control-label' %>
-    <%= f.text_field :full_name %>
-  </div>
+          <div class="form-group">
+            <%= f.label :full_name, class: 'control-label' %>
+            <%= f.text_field :full_name, class: 'form-control'%>
+          </div>
 
-  <div class="actions">
-    <%= f.submit t('.submit', action: action_for(@ticket)) %>
+          <div class="actions">
+            <%= f.submit t('.submit', action: action_for(@ticket)),
+                         class: 'btn btn-primary' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
-<% end %>
+</div>
