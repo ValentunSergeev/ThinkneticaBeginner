@@ -1,14 +1,16 @@
+<%= render 'common/back', path: admin_routes_path %>
+
 <strong><%= t('.title')%></strong>
 <%= @route.name %><br>
 
-<strong><%= t('.trains')%></strong>
-<ul>
+<h4><%= t('.trains')%></h4>
+<ul class="list-group">
   <% @route.trains.each do |train| %>
-    <li><%= train.number %></li>
+    <li class="list-group-item"><%= train.number %></li>
   <% end %>
 </ul>
 
 <%= render 'route_stations' %>
 
-<%= link_to t('common.actions.edit'), edit_admin_route_path(@route) %> |
-<%= link_to t('common.actions.back'), admin_routes_path %>
+<%= link_to t('common.actions.edit'), edit_admin_route_path(@route),
+            class: 'btn btn-primary' %>

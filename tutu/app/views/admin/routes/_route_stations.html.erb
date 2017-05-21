@@ -1,26 +1,35 @@
-<p><strong><%= t('.header')%></strong></p>
+<h4><%= t('.header') %></h4>
 
-<table>
-  <tbody>
+<div class="row">
   <% @route.stations.each do |station| %>
-    <tr>
-      <td><%= station.title %></td>
-      <td>
-        <%= form_tag update_route_params_admin_railway_station_path(station),
-                     method: :put do %>
-          <%= hidden_field_tag :route_id, @route.id %>
-          <%= t('.position')%>
-          <%= number_field_tag :position, station.position_in(@route) %>
-          <%= t('.arrival_time')%>
-          <%= time_field_tag :arrival_time, station.arrival_time_in(@route),
-                             step: 5.minutes %>
-          <%= t('.departure_time')%>
-          <%= time_field_tag :departure_time, station.departure_time_in(@route),
-                             step: 5.minutes %>
-          <%= submit_tag t('common.actions.submit')%>
-        <% end %>
-      </td>
-    </tr>
+    <div class="col-lg-7 col-md-8 col-sm-10">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4><%= station.title %></h4>
+        </div>
+        <div class="panel-body">
+          <%= form_tag update_route_params_admin_railway_station_path(station),
+                       method: :put do %>
+            <%= hidden_field_tag :route_id, @route.id %>
+            <div class="form-group">
+              <%= t('.position') %>
+              <%= number_field_tag :position, station.position_in(@route),
+                                   class: 'form-control' %>
+            </div>
+            <div class="form-group">
+              <%= t('.arrival_time') %>
+              <%= time_field_tag :arrival_time, station.arrival_time_in(@route),
+                                 step: 5.minutes, class: 'form-control' %>
+            </div>
+            <div class="form-group">
+              <%= t('.departure_time') %>
+              <%= time_field_tag :departure_time, station.departure_time_in(@route),
+                                 step: 5.minutes, class: 'form-control' %>
+            </div>
+            <%= submit_tag t('common.actions.submit'), class: 'btn btn-primary' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
   <% end %>
-  </tbody>
-</table>
+</div>
