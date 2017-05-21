@@ -1,15 +1,6 @@
-<h1><%= t('.header')%></h1>
-
-<table>
-  <thead>
-  <tr>
-    <th><%= t('activerecord.models.train') %></th>
-    <th><%= t('.owner_name')%></th>
-    <th></th>
-  </tr>
-  </thead>
-
-  <tbody>
-  <%= render @tickets %>
-  </tbody>
-</table>
+<h1 class><%= t('.header') %></h1>
+<div class="row">
+  <div class="col-lg-8">
+    <%= render @tickets %>
+  </div>
+</div>

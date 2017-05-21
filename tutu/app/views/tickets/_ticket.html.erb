@@ -1,8 +1,17 @@
-<tr>
-  <td><%= ticket.train.number %></td>
-  <td><%= ticket.full_name %></td>
-  <td><%= link_to t('common.actions.show') , ticket %></td>
-  <td><%= link_to t('common.actions.delete'), ticket, method: :delete,
-                  data: {confirm: 'Are you sure?'} %>
-  </td>
-</tr>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h4><%= "#{t('activerecord.models.train')} №#{ticket.train.number}" %></h4>
+  </div>
+  <ul class="list-group">
+    <li class="list-group-item"><%= "#{t('.owner_name')} #{ticket.full_name}" %></li>
+    <%= yield if block_given? %>
+    <li class="list-group-item">
+      <div class="btn-group" role="group" aria-label="...">
+        <%= link_to t('common.actions.show'), ticket, method: :get,
+                    class:                                    'btn btn-default' %>
+        <%= link_to t('common.actions.delete'), ticket, method: :delete, class: 'btn btn-default',
+                    data:                                       { confirm: t('common.are_you_sure') } %>
+      </div>
+    </li>
+  </ul>
+</div>

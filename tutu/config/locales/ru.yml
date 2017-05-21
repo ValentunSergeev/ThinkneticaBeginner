@@ -1,6 +1,5 @@
 ru:
   errors:
-    header: "При сохранении возникли ошибки:"
     stations:
       in_route: "должна быть в маршруте"
       equal: "не должна совпадать с начальной"
@@ -41,7 +40,6 @@ ru:
     form:
       submit: "Купить билет"
     index:
-      owner_name: "На кого оформлен"
       header: "Мои билеты"
     new:
       buy: "Купить билет"
@@ -51,6 +49,8 @@ ru:
       end_station: "Конечная станция"
     search: "Найти билеты"
     my: "Мои билеты"
+    ticket:
+      owner_name: "Оформлен на"
   admin:
     pages:
       welcome:

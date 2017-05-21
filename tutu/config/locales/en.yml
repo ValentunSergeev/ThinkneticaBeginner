@@ -1,6 +1,5 @@
 en:
   errors:
-    header: "The following errors occurred while saving:"
     stations:
       in_route: "must be in selected route"
       equal: "must not be equal to the start station"
@@ -41,7 +40,6 @@ en:
     form:
       submit: "Оформить ticket"
     index:
-      owner_name: "Owner name"
       header: "My tickets"
     new:
       buy: "Buy ticket"
@@ -49,6 +47,8 @@ en:
       buyer: "Full buyer name"
       start_station: "Start station"
       end_station: "End station"
+    ticket:
+      owner_name: "Owner name"
     search: "Search tickets"
     my: "My tickets"
   admin:

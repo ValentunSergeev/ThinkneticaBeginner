@@ -30,7 +30,7 @@
   <% if @trains.present? %>
     <div class="col-md-8 col-lg-7 col-sm-12">
       <% @trains.each do |train| %>
-        <div class="panel panel-default">
+        <div class="panel panel-default" id="train-<%=train.id%>">
           <div class="panel-heading">
             <h4><%= train.number %></h4>
           </div>

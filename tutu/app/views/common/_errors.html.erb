@@ -1,7 +1,6 @@
 <% if resource.errors.any? %>
     <div class="alert alert-danger alert-block devise-bs fade in">
       <button type="button" class="close" data-dismiss="alert">&times;</button>
-      <h2><%= t('errors.header') %></h2>
 
       <ul>
         <% resource.errors.full_messages.each do |message| %>

@@ -1,10 +1,13 @@
-<strong><%= t('.buyer')%></strong>
-<%= @ticket.full_name %><br>
+<%= render 'common/back', path: tickets_path %>
 
-<strong><%= t('.start_station')%></strong>
-<%= @ticket.start_station.title %><br>
+<%= render 'ticket', ticket: @ticket do %>
+  <li class="list-group-item">
+    <strong><%= t('tickets.show.start_station') %>:</strong>
+    <%= @ticket.start_station.title %><br>
+  </li>
+  <li class="list-group-item">
+    <strong><%= t('tickets.show.end_station') %>:</strong>
+    <%= @ticket.end_station.title %><br>
+  </li>
+<% end %>
 
-<strong><%= t('.end_station')%></strong>
-<%= @ticket.end_station.title %><br>
-
-<%= link_to t('common.actions.back'), tickets_path %>
