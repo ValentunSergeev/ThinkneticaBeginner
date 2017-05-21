@@ -148,5 +148,5 @@ ru:
         type: "Тип"
         count: "Количество"
   layouts:
-    application:
+    navbar:
       administrate: "Админка"

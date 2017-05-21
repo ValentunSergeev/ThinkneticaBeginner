@@ -148,5 +148,5 @@ en:
         type: "Type"
         count: "Count"
   layouts:
-    application:
+    navbar:
       administrate: "Administrate"
