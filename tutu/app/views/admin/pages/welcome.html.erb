@@ -5,6 +5,11 @@
     <%= link_to t('.routes'), admin_routes_path, class: 'btn btn-default btn-lg btn-block'%>
     <%= link_to t('.tickets'), admin_tickets_path, class: 'btn btn-default btn-lg btn-block' %>
     <%= link_to t('.wagons'), admin_wagons_path, class: 'btn btn-default btn-lg btn-block' %>
-    <%= link_to t('common.actions.search'), search_path, class: 'btn btn-default btn-lg btn-block' %>
+    <%= link_to t('common.actions.search'), search_path, class: 'btn btn-default btn-lg btn-block' %><br>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        Total users count: <%= User.count %>
+      </div>
+    </div>
   </div>
 </div>
