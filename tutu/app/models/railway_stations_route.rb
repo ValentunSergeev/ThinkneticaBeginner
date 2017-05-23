@@ -5,6 +5,7 @@ class RailwayStationsRoute < ApplicationRecord
   default_scope { order(:position) }
 
   validates :railway_station_id, uniqueness: { scope: :route_id }
+  validates :position, uniqueness: { scope: :route_id }
   validate :arrival_departure_times
 
   private
