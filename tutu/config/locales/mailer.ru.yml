@@ -1,0 +1,7 @@
+ru:
+  ticket:
+    buy:
+      subject: "Вы купили новый билет"
+    delete:
+      subject: "Вы удалили билет"
+  greeting: "Привет, %{name}!"

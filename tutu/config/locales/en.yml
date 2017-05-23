@@ -152,3 +152,11 @@ en:
   layouts:
     navbar:
       administrate: "Administrate"
+  tickets_mailer:
+    buy_ticket:
+      message: "You have bought a new ticket %{ticket_name} filled for %{owner_name}"
+      instructions1: "You can see it "
+      show_link: "here"
+      instructions2: "You can found all your tickets"
+    delete_ticket:
+      message: "You have deleted ticket %{name}."

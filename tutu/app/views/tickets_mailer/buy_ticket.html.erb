@@ -1,0 +1,4 @@
+<p><%= t('greeting', name: @user.first_name) %></p>
+<p><%= t('.message', ticket_name: @ticket.name, owner_name: @ticket.full_name) %></p>
+<p><%= t('.instructions1')%><%= link_to t('.show_link'), @ticket %></p>
+<p><%= t('.instructions2')%><%= link_to t('.show_link'), tickets_url %></p>

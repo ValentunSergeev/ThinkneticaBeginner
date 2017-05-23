@@ -1,0 +1,7 @@
+en:
+  ticket:
+    buy:
+      subject: You have bought a new ticket
+    delete:
+      subject: You have deleted a ticket
+  greeting: Hello, %{name}!

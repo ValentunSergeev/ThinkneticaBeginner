@@ -152,3 +152,11 @@ ru:
   layouts:
     navbar:
       administrate: "Админка"
+  tickets_mailer:
+    buy_ticket:
+      message: "Вы купили новый билет %{ticket_name}, оформленный на %{owner_name}"
+      instructions1: "Вы можете увидеть его тут "
+      show_link: "тут"
+      instructions2: "Все свои билеты вы можете посмотреть"
+    delete_ticket:
+      message: "Вы удалили билет %{name}."
