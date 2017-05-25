@@ -21,12 +21,15 @@ Rails.application.routes.draw do
 
     resources :trains do
       resources :wagons, shallow: true, except: [:index]
+      put :update_name, on: :member
     end
 
     resources :railway_stations do
       put :update_route_params, on: :member
     end
 
-    resources :routes
+    resources :routes do
+      put :update_name, on: :member
+    end
   end
 end

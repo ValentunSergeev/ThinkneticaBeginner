@@ -1,5 +1,11 @@
+<%= javascript_include_tag 'routes_inline' %>
+
 <tr>
-  <td><%= route.name %></td>
+  <td>
+    <%= content_tag :span, route.name, class: 'route_name btn btn-link',
+                    data: {route_id: route.id} %>
+    <%= render 'name_form', route: route %>
+  </td>
   <td>
     <div class="btn-group" role="group" aria-label="...">
       <%= link_to t('common.actions.show'), [:admin, route],

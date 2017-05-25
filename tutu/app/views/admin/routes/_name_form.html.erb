@@ -1,0 +1,10 @@
+<%= form_tag(update_name_admin_route_path(route), method: :put, hidden: true,
+             id: "route_name_#{route.id}", class: 'form-inline route_name_form') do %>
+
+  <div class="form-group">
+    <%= text_field_tag :name, route.name, class: 'form-control' %>
+  </div>
+
+  <%= submit_tag t('common.actions.submit'), class: 'btn btn-primary submit-route-inline' %>
+  <%= content_tag :span, t('common.actions.cancel'), class: 'btn btn-default cancel-route'%>
+<% end %>

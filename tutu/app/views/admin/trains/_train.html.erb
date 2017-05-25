@@ -1,5 +1,11 @@
+<%= javascript_include_tag 'trains_inline' %>
+
 <tr>
-  <td><%= train.number %></td>
+  <td>
+    <%= content_tag :span, train.number, class: 'train_name btn btn-link',
+                    data: {train_id: train.id} %>
+    <%= render 'name_form', train: train %>
+  </td>
   <td>
     <div class="btn-group" role="group" aria-label="...">
       <%= link_to t('common.actions.show'), [:admin, train],

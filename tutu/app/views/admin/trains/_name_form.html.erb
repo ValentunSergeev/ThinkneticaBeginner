@@ -1,0 +1,10 @@
+<%= form_tag(update_name_admin_train_path(train), method: :put, hidden: true,
+             id: "train_name_#{train.id}", class: 'form-inline train_name_form') do %>
+
+  <div class="form-group">
+    <%= text_field_tag :number, train.number, class: 'form-control' %>
+  </div>
+
+  <%= submit_tag t('common.actions.submit'), class: 'btn btn-primary submit-train-inline' %>
+  <%= content_tag :span, t('common.actions.cancel'), class: 'btn btn-default cancel-train'%>
+<% end %>

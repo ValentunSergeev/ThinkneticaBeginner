@@ -1,5 +1,5 @@
 class Admin::TrainsController < Admin::BaseController
-  before_action :set_train, only: [:show, :edit, :update, :destroy]
+  before_action :set_train, only: [:show, :edit, :update, :destroy, :update_name]
 
   def index
     @trains = Train.all
@@ -40,6 +40,16 @@ class Admin::TrainsController < Admin::BaseController
 
     redirect_to admin_trains_url, notice: I18n.t('common.statuses.destroyed',
                                                  resource: @train.localize)
+  end
+
+  def update_name
+    if @train.update(number: params[:number])
+      redirect_to admin_trains_path, notice: I18n.t('common.statuses.updated',
+                                                    resource: @train.localize)
+    else
+      redirect_to admin_trains_path, alert: I18n.t('common.statuses.rejected',
+                                                   resource: @train.localize)
+    end
   end
 
   private

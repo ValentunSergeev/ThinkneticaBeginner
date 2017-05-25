@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170523122837) do
+ActiveRecord::Schema.define(version: 20170525094604) do
 
   create_table "railway_stations", force: :cascade do |t|
     t.string   "title"
@@ -22,8 +22,8 @@ ActiveRecord::Schema.define(version: 20170523122837) do
     t.integer "route_id"
     t.integer "railway_station_id"
     t.integer "position"
-    t.time    "arrival_time",       default: '2000-01-01 13:44:53'
-    t.time    "departure_time",     default: '2000-01-01 13:44:53'
+    t.time    "arrival_time",       default: '2000-01-01 09:56:52'
+    t.time    "departure_time",     default: '2000-01-01 10:56:52'
     t.index ["railway_station_id"], name: "index_railway_stations_routes_on_railway_station_id"
     t.index ["route_id"], name: "index_railway_stations_routes_on_route_id"
   end

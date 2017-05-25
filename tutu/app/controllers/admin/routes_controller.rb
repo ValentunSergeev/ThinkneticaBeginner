@@ -1,5 +1,5 @@
 class Admin::RoutesController < Admin::BaseController
-  before_action :set_route, only: [:show, :edit, :update, :destroy]
+  before_action :set_route, only: [:show, :edit, :update, :destroy, :update_name]
 
   def index
     @routes = Route.all
@@ -43,6 +43,17 @@ class Admin::RoutesController < Admin::BaseController
                 notice: I18n.t('common.statuses.destroyed',
                                resource: @route.localize)
   end
+
+  def update_name
+    if @route.update(name: params[:name])
+      redirect_to admin_routes_path, notice: I18n.t('common.statuses.updated',
+                                                    resource: @route.localize)
+    else
+      redirect_to admin_routes_path, alert: I18n.t('common.statuses.rejected',
+                                                    resource: @route.localize)
+    end
+  end
+
   private
 
   def route_params

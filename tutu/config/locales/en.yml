@@ -36,6 +36,8 @@ en:
       signup: "Sign up"
       search: 'Search'
       new: "New %{resource}"
+      sumbit: "Submit"
+      cancel: "Cancel"
   tickets:
     form:
       submit: "Оформить ticket"

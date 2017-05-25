@@ -6,7 +6,7 @@ class Route < ApplicationRecord
   has_many :trains
 
   validate :stations_length
-  before_validation :set_name
+  before_validation :set_name, if: -> { !name_changed? || name.nil?}
 
   def first_station
     stations.first

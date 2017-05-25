@@ -35,6 +35,8 @@ ru:
       logout: "Выйти"
       signup: "Регистрация"
       search: "Поиск"
+      submit: "Подтвердить"
+      cancel: "Отменить"
       new: "Добавить %{resource}"
   tickets:
     form:
